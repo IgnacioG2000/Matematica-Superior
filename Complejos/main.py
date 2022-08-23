@@ -1,17 +1,75 @@
 from Complejos.formas_complejos.binomica import forma_binomica
 from Complejos.formas_complejos.polar import *
 from Complejos.grafico import dibujar_complejos
+from Complejos.operaciones import *
+from menu import menu
 
-parte_real = float(input("Digita la parte real del complejo_binomica: "))
-parte_imaginaria = float(input("Digita la parte imaginaria del complejo_binomica: "))
+menu()
+opcion = int(input("\nIngresa la opcion deseada: "))
 
-complejo_binomica = forma_binomica(parte_real, parte_imaginaria)
-modulo_complejo = modulo_complejo(parte_real, parte_imaginaria)
-fase_complejo = fase_complejo(parte_real, parte_imaginaria)
-complejo_polar = forma_polar(parte_real, parte_imaginaria)
+if opcion == 1:
+    parte_real = float(input("\nDigita la parte real del complejo: "))
+    parte_imaginaria = float(input("Digita la parte imaginaria del complejo: "))
 
-print(f"El complejo en forma binomica es: {complejo_binomica}\n")
-print(f"El modulo del complejo es: {modulo_complejo}")
-print(f"La fase del complejo es: {fase_complejo}")
-print(f"El complejo en forma polar es: {complejo_polar}")
-dibujar_complejos(complejo_binomica)
+    binomica = forma_binomica(parte_real, parte_imaginaria)
+    print(f"Forma binomica: {binomica}")
+
+elif opcion == 2:
+    parte_real = float(input("\nDigita la parte real del complejo: "))
+    parte_imaginaria = float(input("Digita la parte imaginaria del complejo: "))
+
+    polar = forma_polar(parte_real, parte_imaginaria)
+    print(f"Forma polar: {polar}")
+
+elif opcion == 3:
+    parte_real_1 = float(input("\nDigita la parte real del complejo 1: "))
+    parte_imaginaria_1 = float(input("Digita la parte imaginaria del complejo 1: "))
+    parte_real_2 = float(input("Digita la parte real del complejo 2: "))
+    parte_imaginaria_2 = float(input("Digita la parte imaginaria del complejo 2: "))
+
+    suma = suma(parte_real_1, parte_imaginaria_1, parte_real_2, parte_imaginaria_2)
+    print(f"Suma = {suma}")
+
+elif opcion == 4:
+    parte_real_1 = float(input("\nDigita la parte real del complejo 1: "))
+    parte_imaginaria_1 = float(input("Digita la parte imaginaria del complejo 1: "))
+    parte_real_2 = float(input("Digita la parte real del complejo 2: "))
+    parte_imaginaria_2 = float(input("Digita la parte imaginaria del complejo 2: "))
+
+    resta = resta(parte_real_1, parte_imaginaria_1, parte_real_2, parte_imaginaria_2)
+    print(f"Suma = {resta}")
+
+elif opcion == 5:
+    parte_real_1 = float(input("\nDigita la parte real del complejo 1: "))
+    parte_imaginaria_1 = float(input("Digita la parte imaginaria del complejo 1: "))
+    parte_real_2 = float(input("Digita la parte real del complejo 2: "))
+    parte_imaginaria_2 = float(input("Digita la parte imaginaria del complejo 2: "))
+
+    producto = multiplicacion(parte_real_1, parte_imaginaria_1, parte_real_2, parte_imaginaria_2)
+    print(f"Producto = {producto}")
+
+elif opcion == 6:
+    parte_real_1 = float(input("\nDigita la parte real del complejo 1: "))
+    parte_imaginaria_1 = float(input("Digita la parte imaginaria del complejo 1: "))
+    parte_real_2 = float(input("Digita la parte real del complejo 2: "))
+    parte_imaginaria_2 = float(input("Digita la parte imaginaria del complejo 2: "))
+
+    cociente = division(parte_real_1, parte_imaginaria_1, parte_real_2, parte_imaginaria_2)
+    print(f"Producto = {cociente}")
+
+
+elif opcion == 7:
+    parte_real = float(input("\nDigita la parte real del complejo: "))
+    parte_imaginaria = float(input("Digita la parte imaginaria del complejo: "))
+    exponente = float(input("Digita el exponente: "))
+
+    resultado = potencia(parte_real, parte_imaginaria, exponente)
+    print(f"Resultado = {resultado}")
+
+if opcion == 8:
+    parte_real = float(input("\nDigita la parte real del complejo: "))
+    parte_imaginaria = float(input("Digita la parte imaginaria del complejo: "))
+
+    complejo = complex(parte_real, parte_imaginaria)
+
+    dibujar_complejos(complejo)
