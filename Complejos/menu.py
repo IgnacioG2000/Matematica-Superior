@@ -9,6 +9,8 @@ def menu():
     print(" 7. Elevar un complejo a un exponente natural")
     print(" 8. Calcular raiz cuadrada de un numero complejo")
     print(" 9. Mostrar grafico del complejo")
-    print(" 10. Salir")
+    print(" 10. Mostrar complejo en forma trigonometrica")
+    print(" 11. Mostrar complejo en forma exponencial")
+    print(" 12. Salir")
 
 
