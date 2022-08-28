@@ -7,6 +7,8 @@ def menu():
     print(" 5. Multiplicar complejos")
     print(" 6. Dividir complejos")
     print(" 7. Elevar un complejo a un exponente natural")
-    print(" 8. Mostrar grafico del complejo")
+    print(" 8. Calcular raiz cuadrada de un numero complejo")
+    print(" 9. Mostrar grafico del complejo")
+    print(" 10. Salir")
 
 
