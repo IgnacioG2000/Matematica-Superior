@@ -34,14 +34,14 @@
 <div class="formularioBinomica">
     <br>
   <h2> Numeros Complejos en forma binómica</h2>
-  <form class="row g-3" method="post">
+  <form class="row g-3" action="/binomica" method="POST">
     <div class="col-md-7">
       <label for="parteReal" class="form-label">Parte Real</label>
-      <input type="number" class="form-control" id="parteReal">
+      <input type="number" class="form-control" name="parteReal" id="parteReal">
     </div>
     <div class="col-md-7">
       <label for="parteImaginaria" class="form-label">Parte Imaginaria</label>
-      <input type="number" class="form-control" id="parteImaginaria">
+      <input type="number" class="form-control" name="parteImaginaria" id="parteImaginaria">
     </div>
     <div class="col-12">
       <button type="submit" class="btn btn-primary">Mostrar número complejo</button>
