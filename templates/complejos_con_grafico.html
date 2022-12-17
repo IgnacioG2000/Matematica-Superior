@@ -45,8 +45,8 @@
 <!-- Section-->
 <div class="formularioBinomica">
     <br>
-  <h2> Numeros Complejos en forma binómica</h2>
-  <form class="row g-3" action="/binomica" method="POST">
+  <h2> Numeros Complejos</h2>
+  <form class="row g-3" action="/complejos" method="POST">
     <div class="col-md-7">
       <label for="parteReal" class="form-label">Parte Real</label>
       <input type="number" class="form-control" name="parteReal" id="parteReal">
@@ -55,12 +55,27 @@
       <label for="parteImaginaria" class="form-label">Parte Imaginaria</label>
       <input type="number" class="form-control" name="parteImaginaria" id="parteImaginaria">
     </div>
+      <!-- Example single danger button -->
+    <div class="col-md-7">
+
+      <select name="operacion" class="form-select" aria-label="Default select example">
+        <option selected>Selecciona la forma en que querés ver el número complejo</option>
+        <option value="binomica">Binomica</option>
+        <option value="polar">Polar</option>
+        <option value="trigonometrica">Trigonométrica</option>
+        <option value="exponencial">Exponencial</option>
+      </select>
+    </div>
+
     <div class="col-12">
       <button type="submit" class="btn btn-primary" >Mostrar número complejo</button>
     </div>
   </form>
 </div>
 <p>
+  {%if complejo%}
+  El numero complejo es: {{complejo}}
+  {%endif%}
 </p>
 <!-- Footer-->
 <footer class="py-5 bg-color1 fixed-bottom">

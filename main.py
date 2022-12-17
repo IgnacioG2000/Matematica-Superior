@@ -10,16 +10,19 @@ def Index():
     return render_template('index.html')
 
 
-@app.route('/binomica', methods=['POST', 'GET'])
+@app.route('/complejos', methods=['POST', 'GET'])
 def binomica():
     if request.method == 'POST':
         parte_real = request.form['parteReal']
         parte_imaginaria = request.form['parteImaginaria']
         complejo_binomica = forma_binomica(float(parte_real), float(parte_imaginaria))
+        operacion = request.form['operacion']
+        if operacion == 'binomica':
+            print(operacion)
 
-        return render_template('complejos_binomica.html', complejo=complejo_binomica)
+        return render_template('complejos_con_grafico.html', complejo=complejo_binomica)
     else:
-        return render_template('complejos_binomica.html')
+        return render_template('complejos_con_grafico.html')
 
 
 if __name__ == '__main__':
