@@ -15,13 +15,11 @@ def binomica():
     if request.method == 'POST':
         parte_real = request.form['parteReal']
         parte_imaginaria = request.form['parteImaginaria']
-        print(parte_real)
-        print(parte_imaginaria)
-        print(forma_binomica(float(parte_real), float(parte_imaginaria)))
-        return "recibido"
+        complejo_binomica = forma_binomica(float(parte_real), float(parte_imaginaria))
+
+        return render_template('complejos_binomica.html', complejo=complejo_binomica)
     else:
         return render_template('complejos_binomica.html')
-
 
 
 if __name__ == '__main__':

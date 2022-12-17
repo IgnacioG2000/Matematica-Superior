@@ -14,18 +14,30 @@
 </head>
 <body>
 <!-- Navigation-->
-<nav class="navbar navbar-expand-lg navbar-dark bg-color3">
-  <div class="container px-4 px-lg-5">
-    <a class="navbar-brand" href="#!">
-      <img src="../static/imagenes/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
-      Matemática Superior
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+<nav class="navbar navbar-expand-lg bg-color3" >
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-        <li class="nav-item"><a class="nav-link" id="navComplejos" href="#about">Números Complejos</a></li>
-
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" id="home" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Números Complejos
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/binomica">Mostrar complejo con su gráfica</a></li>
+            <li><a class="dropdown-item" href="#">Operaciones con 2 complejos</a></li>
+            <li><a class="dropdown-item" href="#">Elevar complejo a exp natural</a></li>
+            <li><a class="dropdown-item" href="#">Calcular raiz cuadrada de un numero complejo</a></li>
+          </ul>
+        </li>
       </ul>
+
     </div>
   </div>
 </nav>
