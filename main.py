@@ -35,5 +35,12 @@ def complejos_con_grafico():
         return render_template('complejos_con_grafico.html')
 
 
+@app.route('/complejos_operaciones', methods=['GET','POST'])
+def operaciones_complejos():
+    if request.method == 'POST':
+        return "recibido"
+    else:
+        return render_template('operaciones_con_complejos.html')
+
 if __name__ == '__main__':
     app.run(port=8080)
