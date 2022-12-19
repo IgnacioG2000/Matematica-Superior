@@ -19,7 +19,7 @@ def complejos_con_grafico():
     if request.method == 'POST':
         parte_real = float(request.form['parteReal'])
         parte_imaginaria = float(request.form['parteImaginaria'])
-        operacion = request.form['operacion']
+        operacion = request.form['visualizacion']
         if operacion == 'binomica':
             complejo_binomica = forma_binomica(parte_real, parte_imaginaria)
             return render_template('complejos_con_grafico.html', complejo=complejo_binomica, operacion=operacion)
