@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 
-from Complejos.calculos.operaciones import suma_complejos, resta_complejos, multiplicacion, division
+from Complejos.calculos.operaciones import suma_complejos, resta_complejos, multiplicacion, division, potencia
 from Complejos.formas_complejos.binomica import forma_binomica
 from Complejos.formas_complejos.exponencial import forma_exponencial
 from Complejos.formas_complejos.polar import forma_polar
@@ -59,6 +59,18 @@ def operaciones_complejos():
 
     else:
         return render_template('operaciones_con_complejos.html')
+
+
+@app.route('/complejos_exponente', methods=['GET', 'POST'])
+def exponencial():
+    if request.method == 'POST':
+        parte_real = float(request.form['parteReal'])
+        parte_imaginaria = float(request.form['parteImaginaria'])
+        exponente = float(request.form['exponente'])
+        resultado = potencia(parte_real, parte_imaginaria, exponente)
+        return render_template('potenciacion_complejos.html', resultado=resultado)
+    else:
+        return render_template('potenciacion_complejos.html')
 
 
 if __name__ == '__main__':

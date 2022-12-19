@@ -34,7 +34,7 @@
             <li><a class="dropdown-item" href="/complejos">Mostrar complejo con su gráfica</a></li>
             <li><a class="dropdown-item" href="/complejos_operaciones">Operaciones con 2 complejos</a></li>
             <li><a class="dropdown-item" href="/complejos_exponente">Elevar complejo a exp natural</a></li>
-            <li><a class="dropdown-item" href="/complejos_raiz">Calcular raiz cuadrada de un numero complejo</a></li>
+            <li><a class="dropdown-item" href="#">Calcular raiz cuadrada de un numero complejo</a></li>
           </ul>
         </li>
       </ul>
@@ -43,46 +43,31 @@
   </div>
 </nav>
 <!-- Section-->
-<div class="formularioOperaciones">
+<div class="formularioComplejos">
     <br>
   <h2> Numeros Complejos</h2>
-  <form class="row g-3" action="/complejos_operaciones" method="POST">
+  <form class="row g-3" action="/complejos_exponente" method="POST">
     <div class="col-md-7">
-      <label for="parteReal1" class="form-label">Parte Real primer complejo</label>
-      <input type="number" class="form-control" name="parteReal1" id="parteReal1">
-    </div>
-      <div class="col-md-7">
-      <label for="parteImaginaria1" class="form-label">Parte Imaginaria primer complejo</label>
-      <input type="number" class="form-control" name="parteImaginaria1" id="parteImaginaria1">
-    </div>
-      <div class="col-md-7">
-      <label for="parteReal2" class="form-label">Parte Real segundo complejo</label>
-      <input type="number" class="form-control" name="parteReal2" id="parteReal2">
+      <label for="parteReal" class="form-label">Parte Real</label>
+      <input type="number" class="form-control" name="parteReal" id="parteReal">
     </div>
     <div class="col-md-7">
-      <label for="parteImaginaria2" class="form-label">Parte Imaginaria segundo complejo</label>
-      <input type="number" class="form-control" name="parteImaginaria2" id="parteImaginaria2">
+      <label for="parteImaginaria" class="form-label">Parte Imaginaria</label>
+      <input type="number" class="form-control" name="parteImaginaria" id="parteImaginaria">
     </div>
-      <!-- Example single danger button -->
     <div class="col-md-7">
-
-      <select name="operacion" id="operacion" class="form-select" aria-label="Default select example">
-        <option selected>Selecciona la operación que querés realizar</option>
-        <option value="suma">Suma</option>
-        <option value="resta">Resta</option>
-        <option value="multiplicacion">Multiplicación</option>
-        <option value="division">División</option>
-      </select>
+      <label for="exponente" class="form-label">Exponente</label>
+      <input type="number" class="form-control" name="exponente" id="exponente">
     </div>
 
     <div class="col-12">
-      <button type="submit" class="btn btn-primary" >Mostrar número complejo</button>
+      <button type="submit" class="btn btn-primary" >Calcular potencia</button>
     </div>
   </form>
 </div>
 <p>
-  {%if complejo%}
-  El resultado es: {{complejo}}
+  {%if resultado%}
+  El resultado es: {{resultado}}
   {%endif%}
 </p>
 <!-- Footer-->
