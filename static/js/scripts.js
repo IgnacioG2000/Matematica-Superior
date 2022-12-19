@@ -1,15 +1,17 @@
 const operacion = document.getElementById('operacion')
-const parteReal2 = document.getElementById('parteReal2').value
-const parteImaginaria2 = document.getElementById('parteImaginaria2').value
 
-function alertarDivisionPor0(operacion, pr, pi) {
+function alertarDivisionPor0(operacion) {
+    const pr = document.getElementById('parteReal2').value
+    const pi = document.getElementById('parteImaginaria2').value
+    console.log(pr)
+    console.log(pi)
     if(operacion === 'division' && pr === 0 && pi === 0) {
         alert("ESTAS DIVIDIENDO POR 0")
     }
 }
 
-operacion.addEventListener('select', e=> {
+operacion.addEventListener('click', e=> {
     e.preventDefault()
     console.log(operacion)
-    alertarDivisionPor0(this.operacion.value, parteReal2, parteImaginaria2)
+    alertarDivisionPor0(this.operacion.value)
 })
