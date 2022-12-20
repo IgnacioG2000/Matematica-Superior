@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <title>{{operacion}}</title>
+  <title>Raiz Cuadrada</title>
   <!-- Favicon-->
   <link rel="icon" type="image/x-icon" href="../static/imagenes/logo.png" />
   <!-- Bootstrap icons-->
@@ -16,7 +16,6 @@
 <body>
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg bg-color3" >
-  <div class="container-fluid">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
@@ -39,46 +38,29 @@
   </div>
 </nav>
 <!-- Section-->
-<div class="formularioOperaciones">
+<div class="formularioComplejos">
     <br>
-  <h4> Operaciones con números complejos</h4>
-  <form class="row g-3" action="/complejos_operaciones" method="POST">
+  <h4> Raiz cuadrada de un número complejo</h4>
+  <form class="row g-3" action="/complejos_raiz" method="POST">
     <div class="col-md-7">
-      <label for="parteReal1" class="form-label">Parte Real primer complejo</label>
-      <input type="number" class="form-control" name="parteReal1" id="parteReal1">
-    </div>
-      <div class="col-md-7">
-      <label for="parteImaginaria1" class="form-label">Parte Imaginaria primer complejo</label>
-      <input type="number" class="form-control" name="parteImaginaria1" id="parteImaginaria1">
-    </div>
-      <div class="col-md-7">
-      <label for="parteReal2" class="form-label">Parte Real segundo complejo</label>
-      <input type="number" class="form-control" name="parteReal2" id="parteReal2">
+      <label for="parteReal" class="form-label">Parte Real</label>
+      <input type="number" class="form-control" name="parteReal" id="parteReal">
     </div>
     <div class="col-md-7">
-      <label for="parteImaginaria2" class="form-label">Parte Imaginaria segundo complejo</label>
-      <input type="number" class="form-control" name="parteImaginaria2" id="parteImaginaria2">
-    </div>
-      <!-- Example single danger button -->
-    <div class="col-md-7">
-
-      <select name="operacion" id="operacion" class="form-select" aria-label="Default select example">
-        <option selected>Selecciona la operación que querés realizar</option>
-        <option value="suma">Suma</option>
-        <option value="resta">Resta</option>
-        <option value="multiplicacion">Multiplicación</option>
-        <option value="division">División</option>
-      </select>
+      <label for="parteImaginaria" class="form-label">Parte Imaginaria</label>
+      <input type="number" class="form-control" name="parteImaginaria" id="parteImaginaria">
     </div>
 
     <div class="col-12">
-      <button type="submit" class="btn btn-primary" >Mostrar número complejo</button>
+      <button type="submit" class="btn btn-primary" >Calcular raiz cuadrada</button>
     </div>
   </form>
 </div>
 <p>
-  {%if complejo%}
-  El resultado es: {{complejo}}
+  {% if resultado1 %}
+  {%if resultado2 %}
+  Los resultados son: {{resultado1}} y {{resultado2}}
+  {%endif%}
   {%endif%}
 </p>
 <!-- Footer-->

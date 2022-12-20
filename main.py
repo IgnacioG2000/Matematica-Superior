@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 
-from Complejos.calculos.operaciones import suma_complejos, resta_complejos, multiplicacion, division, potencia
+from Complejos.calculos.operaciones import suma_complejos, resta_complejos, multiplicacion, division, potencia, raiz_cuadrada
 from Complejos.formas_complejos.binomica import forma_binomica
 from Complejos.formas_complejos.exponencial import forma_exponencial
 from Complejos.formas_complejos.polar import forma_polar
@@ -71,6 +71,20 @@ def exponencial():
         return render_template('potenciacion_complejos.html', resultado=resultado)
     else:
         return render_template('potenciacion_complejos.html')
+
+
+@app.route('/complejos_raiz', methods=['GET', 'POST'])
+def raiz_cuadrada_complejo():
+    if request.method == 'POST':
+        parte_real = float(request.form['parteReal'])
+        parte_imaginaria = float(request.form['parteImaginaria'])
+
+        resultado1, resultado2 = raiz_cuadrada(parte_real, parte_imaginaria)
+        print(resultado1)
+        print(resultado2)
+        return render_template('raiz_cuadrada.html', resultado1=resultado1, resultado2=resultado2)
+    else:
+        return render_template('raiz_cuadrada.html')
 
 
 if __name__ == '__main__':
