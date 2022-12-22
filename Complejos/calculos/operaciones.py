@@ -28,7 +28,7 @@ def division(parte_real_1, parte_im_1, parte_real_2, parte_im_2):
     complejo_1 = complex(parte_real_1, parte_im_1)
     complejo_2 = complex(parte_real_2, parte_im_2)
 
-    if complejo_2 != 0:
+    if complejo_2 != 0j:
         return complejo_1 / complejo_2
 
 
