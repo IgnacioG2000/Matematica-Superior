@@ -43,11 +43,15 @@ def raiz_cuadrada(parte_real, parte_im):
     modulo = modulo_complejo(parte_real, parte_im)
 
     if parte_im >= 0:
-        primer_complejo = complex(math.sqrt((modulo + parte_real) / 2), math.sqrt((modulo - parte_real) / 2))
-        segundo_complejo = complex((-1) * math.sqrt((modulo + parte_real) / 2),
-                                   (-1) * math.sqrt((modulo - parte_real) / 2))
+        primer_complejo = complex(round(math.sqrt((modulo + parte_real) / 2), 3),
+                                  round(math.sqrt((modulo - parte_real) / 2), 3))
+
+        segundo_complejo = complex(round((-1) * math.sqrt((modulo + parte_real) / 2), 3),
+                                   round((-1) * math.sqrt((modulo - parte_real) / 2), 3))
         return primer_complejo, segundo_complejo
     else:
-        primer_complejo = complex((-1) * math.sqrt((modulo + parte_real) / 2), math.sqrt((modulo - parte_real) / 2))
-        segundo_complejo = complex(math.sqrt((modulo + parte_real) / 2), (-1) * math.sqrt((modulo - parte_real) / 2))
+        primer_complejo = complex(round((-1) * math.sqrt((modulo + parte_real) / 2), 3),
+                                  round(math.sqrt((modulo - parte_real) / 2), 3))
+        segundo_complejo = complex(round(math.sqrt((modulo + parte_real) / 2), 3),
+                                   round((-1) * math.sqrt((modulo - parte_real) / 2), 3))
         return primer_complejo, segundo_complejo
