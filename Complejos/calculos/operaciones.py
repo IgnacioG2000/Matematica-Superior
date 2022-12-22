@@ -30,6 +30,8 @@ def division(parte_real_1, parte_im_1, parte_real_2, parte_im_2):
 
     if complejo_2 != 0j:
         return complejo_1 / complejo_2
+    else:
+        raise ZeroDivisionError("Estas dividiendo por 0")
 
 
 def potencia(parte_real, parte_im, exponente):
