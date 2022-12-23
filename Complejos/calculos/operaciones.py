@@ -57,3 +57,11 @@ def raiz_cuadrada(parte_real, parte_im):
         segundo_complejo = complex(round(math.sqrt((modulo + parte_real) / 2), 3),
                                    round((-1) * math.sqrt((modulo - parte_real) / 2), 3))
         return primer_complejo, segundo_complejo
+
+
+def bhaskara(a, b, c):
+    discriminante = b ** 2 - 4 * a * c
+    raiz1, raiz2 = raiz_cuadrada(discriminante.real, discriminante.imag)
+    resultado1 = ((-1) * b + raiz1) / (2 * a)
+    resultado2 = ((-1) * b + raiz2) / (2 * a)
+    return resultado1, resultado2

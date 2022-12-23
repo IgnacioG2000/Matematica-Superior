@@ -42,8 +42,9 @@
 <!-- Section-->
 <div class="formularioOperaciones">
     <br>
-  <h4> Operaciones con números complejos</h4>
-  <form class="row g-3" action="/complejos_operaciones" method="POST">
+  <h4>Ecuación cuadrática con coeficientes complejos</h4>
+  <h6>Escribí la parte real e imaginaria del coeficiente principal</h6>
+  <form class="row g-3" action="/cuadratica_complejos" method="POST">
     <div class="col-md-7">
       <label for="parteReal1" class="form-label">Parte Real primer complejo</label>
       <input type="number" class="form-control" name="parteReal1" id="parteReal1">
@@ -52,6 +53,7 @@
       <label for="parteImaginaria1" class="form-label">Parte Imaginaria primer complejo</label>
       <input type="number" class="form-control" name="parteImaginaria1" id="parteImaginaria1">
     </div>
+    <h6>Escribí la parte real e imaginaria del coeficiente lineal</h6>
     <div class="col-md-7">
       <label for="parteReal2" class="form-label">Parte Real segundo complejo</label>
       <input type="number" class="form-control" name="parteReal2" id="parteReal2">
@@ -60,26 +62,26 @@
       <label for="parteImaginaria2" class="form-label">Parte Imaginaria segundo complejo</label>
       <input type="number" class="form-control" name="parteImaginaria2" id="parteImaginaria2">
     </div>
-      <!-- Example single danger button -->
+    <h6>Escribí la parte real e imaginaria del término independiente</h6>
     <div class="col-md-7">
-
-      <select name="operacion" id="operacion" class="form-select" aria-label="Default select example">
-        <option selected>Selecciona la operación que querés realizar</option>
-        <option value="suma">Suma</option>
-        <option value="resta">Resta</option>
-        <option value="multiplicacion">Multiplicación</option>
-        <option value="division">División</option>
-      </select>
+      <label for="parteReal3" class="form-label">Parte Real tercer complejo</label>
+      <input type="number" class="form-control" name="parteReal3" id="parteReal3">
+    </div>
+    <div class="col-md-7">
+      <label for="parteImaginaria3" class="form-label">Parte Imaginaria tercer complejo</label>
+      <input type="number" class="form-control" name="parteImaginaria3" id="parteImaginaria3">
     </div>
 
     <div class="col-12">
-      <button type="submit" class="btn btn-primary" >Mostrar número complejo</button>
+      <button type="submit" class="btn btn-primary" >Resolver Ecuación</button>
     </div>
   </form>
 </div>
 <p>
-  {%if complejo%}
-  El resultado es: {{complejo}}
+  {% if resultado1 %}
+  {%if resultado2 %}
+  Los resultados son: {{resultado1}} y {{resultado2}}
+  {%endif%}
   {%endif%}
 </p>
 <!-- Footer-->

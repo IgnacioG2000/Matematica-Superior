@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 
-from Complejos.calculos.operaciones import suma_complejos, resta_complejos, multiplicacion, division, potencia, raiz_cuadrada
+from Complejos.calculos.operaciones import suma_complejos, resta_complejos, multiplicacion, division, potencia, \
+    raiz_cuadrada, bhaskara
 from Complejos.formas_complejos.binomica import forma_binomica
 from Complejos.formas_complejos.exponencial import forma_exponencial
 from Complejos.formas_complejos.polar import forma_polar
@@ -85,6 +86,31 @@ def raiz_cuadrada_complejo():
         return render_template('raiz_cuadrada.html', resultado1=resultado1, resultado2=resultado2)
     else:
         return render_template('raiz_cuadrada.html')
+
+
+@app.route('/cuadratica_complejos', methods=['GET', 'POST'])
+def resolvente():
+    if request.method == 'POST':
+        parte_real1 = float(request.form['parteReal1'])
+        parte_imaginaria1 = float(request.form['parteImaginaria1'])
+        parte_real2 = float(request.form['parteReal2'])
+        parte_imaginaria2 = float(request.form['parteImaginaria2'])
+        parte_real3 = float(request.form['parteReal3'])
+        parte_imaginaria3 = float(request.form['parteImaginaria3'])
+
+        complejo1 = complex(parte_real1, parte_imaginaria1)
+        complejo2 = complex(parte_real2, parte_imaginaria2)
+        complejo3 = complex(parte_real3, parte_imaginaria3)
+        print(complejo1)
+        print(complejo2)
+        print(complejo3)
+
+        resultado1, resultado2 = bhaskara(complejo1, complejo2, complejo3)
+        print(resultado1)
+        print(resultado2)
+        return render_template('ecuacion_compleja.html', resultado1=resultado1, resultado2=resultado2)
+    else:
+        return render_template('ecuacion_compleja.html')
 
 
 if __name__ == '__main__':
