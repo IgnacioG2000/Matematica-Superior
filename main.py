@@ -44,16 +44,16 @@ def operaciones_complejos():
         complejo2 = complex(request.form['complejoOperaciones2'])
         operacion = request.form['operacion']
         if operacion == 'suma':
-            complejo_suma = suma_complejos(complejo1.real, complejo1.imag, complejo2.real, complejo2.imag)
+            complejo_suma = suma_complejos(complejo1, complejo2)
             return render_template('operaciones_con_complejos.html', complejo=complejo_suma, operacion=operacion)
         elif operacion == 'resta':
-            complejo_resta = resta_complejos(complejo1.real, complejo1.imag, complejo2.real, complejo2.imag)
+            complejo_resta = resta_complejos(complejo1, complejo2)
             return render_template('complejos_con_grafico.html', complejo=complejo_resta, operacion=operacion)
         elif operacion == 'multiplicacion':
-            complejo_multiplicacion = multiplicacion(complejo1.real, complejo1.imag, complejo2.real, complejo2.imag)
+            complejo_multiplicacion = multiplicacion(complejo1, complejo2)
             return render_template('complejos_con_grafico.html', complejo=complejo_multiplicacion, operacion=operacion)
         else:
-            complejo_cociente = division(complejo1.real, complejo1.imag, complejo2.real, complejo2.imag)
+            complejo_cociente = division(complejo1, complejo2)
             return render_template('complejos_con_grafico.html', complejo=complejo_cociente, operacion=operacion)
 
     else:
@@ -65,7 +65,7 @@ def exponencial():
     if request.method == 'POST':
         complejo = complex(request.form['complejoExp'])
         exponente = float(request.form['exponente'])
-        resultado = potencia(complejo.real, complejo.imag, exponente)
+        resultado = potencia(complejo, exponente)
         return render_template('potenciacion_complejos.html', resultado=resultado)
     else:
         return render_template('potenciacion_complejos.html')
@@ -76,7 +76,7 @@ def raiz_cuadrada_complejo():
     if request.method == 'POST':
         complejo = complex(request.form['complejoRaiz'])
 
-        resultado1, resultado2 = raiz_cuadrada(complejo.real, complejo.imag)
+        resultado1, resultado2 = raiz_cuadrada(complejo)
         print(resultado1)
         print(resultado2)
         return render_template('raiz_cuadrada.html', resultado1=resultado1, resultado2=resultado2)
