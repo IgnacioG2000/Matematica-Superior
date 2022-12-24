@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 
 from Complejos.calculos.operaciones import suma_complejos, resta_complejos, multiplicacion, division, potencia, \
-    raiz_cuadrada, bhaskara
+    raiz_cuadrada, bhaskara, logaritmo_natural_complejo
 from Complejos.formas_complejos.binomica import forma_binomica
 from Complejos.formas_complejos.exponencial import forma_exponencial
 from Complejos.formas_complejos.polar import forma_polar
@@ -100,6 +100,18 @@ def resolvente():
         return render_template('ecuacion_compleja.html', resultado1=resultado1, resultado2=resultado2)
     else:
         return render_template('ecuacion_compleja.html')
+
+
+@app.route('/complejos_logaritmo', methods=['GET', 'POST'])
+def logaritmo_natural():
+    if request.method == 'POST':
+        complejo = complex(request.form['logNatural'])
+        print(complejo)
+
+        resultado = logaritmo_natural_complejo(complejo)
+        return render_template('logaritmo_natural.html', resultado=resultado)
+    else:
+        return render_template('logaritmo_natural.html')
 
 
 if __name__ == '__main__':

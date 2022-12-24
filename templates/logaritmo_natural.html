@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <title>Complejos</title>
+  <title>Logaritmo Natural</title>
   <!-- Favicon-->
   <link rel="icon" type="image/x-icon" href="../static/imagenes/logo.png" />
   <!-- Bootstrap icons-->
@@ -16,6 +16,7 @@
 <body>
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg bg-color3" >
+  <div class="container-fluid">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
@@ -42,36 +43,20 @@
 <!-- Section-->
 <div class="formularioComplejos">
     <br>
-  <h4> Numeros Complejos</h4>
-  <form class="row g-3" action="/complejos" method="POST">
+  <h4> Logaritmo natural de un número complejo</h4>
+  <form class="row g-3" action="/complejos_logaritmo" method="POST">
     <div class="col-md-7">
-      <label for="parteReal" class="form-label">Parte Real</label>
-      <input type="number" class="form-control" name="parteReal" id="parteReal">
+      <label for="logNatural" class="form-label">Número complejo</label>
+      <input type="text" class="form-control" name="logNatural" id="logNatural">
     </div>
-    <div class="col-md-7">
-      <label for="parteImaginaria" class="form-label">Parte Imaginaria</label>
-      <input type="number" class="form-control" name="parteImaginaria" id="parteImaginaria">
-    </div>
-      <!-- Example single danger button -->
-    <div class="col-md-7">
-
-      <select name="visualizacion" class="form-select" aria-label="Default select example">
-        <option selected>Selecciona la forma en que querés ver el número complejo</option>
-        <option value="binomica">Binomica</option>
-        <option value="polar">Polar</option>
-        <option value="trigonometrica">Trigonométrica</option>
-        <option value="exponencial">Exponencial</option>
-      </select>
-    </div>
-
     <div class="col-12">
-      <button type="submit" class="btn btn-primary" >Mostrar número complejo</button>
+      <button type="submit" class="btn btn-primary" >Calcular logaritmo natural</button>
     </div>
   </form>
 </div>
 <p>
-  {%if complejo%}
-  El numero complejo en forma {{operacion}} es: {{complejo}}
+  {%if resultado%}
+  El resultado es: {{resultado}}
   {%endif%}
 </p>
 <!-- Footer-->
