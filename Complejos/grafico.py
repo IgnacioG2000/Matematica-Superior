@@ -1,7 +1,8 @@
 import matplotlib.pyplot as plt
 
 
-def dibujar_complejos(complejo):
+def dibujar_complejos():
+    complejo = 4 + 3j
     #TODO: Ver de ponerlo mas lindo
     fig, ax = plt.subplots()
     ax.quiver(0, 0, complejo.real, complejo.imag, angles='xy', scale_units='xy', scale=1)
