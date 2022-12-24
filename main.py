@@ -40,22 +40,20 @@ def complejos_con_grafico():
 @app.route('/complejos_operaciones', methods=['GET', 'POST'])
 def operaciones_complejos():
     if request.method == 'POST':
-        parte_real1 = float(request.form['parteReal1'])
-        parte_imaginaria1 = float(request.form['parteImaginaria1'])
-        parte_real2 = float(request.form['parteReal2'])
-        parte_imaginaria2 = float(request.form['parteImaginaria2'])
+        complejo1 = complex(request.form['complejoOperaciones1'])
+        complejo2 = complex(request.form['complejoOperaciones2'])
         operacion = request.form['operacion']
         if operacion == 'suma':
-            complejo_suma = suma_complejos(parte_real1, parte_imaginaria1, parte_real2, parte_imaginaria2)
+            complejo_suma = suma_complejos(complejo1.real, complejo1.imag, complejo2.real, complejo2.imag)
             return render_template('operaciones_con_complejos.html', complejo=complejo_suma, operacion=operacion)
         elif operacion == 'resta':
-            complejo_resta = resta_complejos(parte_real1, parte_imaginaria1, parte_real2, parte_imaginaria2)
+            complejo_resta = resta_complejos(complejo1.real, complejo1.imag, complejo2.real, complejo2.imag)
             return render_template('complejos_con_grafico.html', complejo=complejo_resta, operacion=operacion)
         elif operacion == 'multiplicacion':
-            complejo_multiplicacion = multiplicacion(parte_real1, parte_imaginaria1, parte_real2, parte_imaginaria2)
+            complejo_multiplicacion = multiplicacion(complejo1.real, complejo1.imag, complejo2.real, complejo2.imag)
             return render_template('complejos_con_grafico.html', complejo=complejo_multiplicacion, operacion=operacion)
         else:
-            complejo_cociente = division(parte_real1, parte_imaginaria1, parte_real2, parte_imaginaria2)
+            complejo_cociente = division(complejo1.real, complejo1.imag, complejo2.real, complejo2.imag)
             return render_template('complejos_con_grafico.html', complejo=complejo_cociente, operacion=operacion)
 
     else:
@@ -65,10 +63,9 @@ def operaciones_complejos():
 @app.route('/complejos_exponente', methods=['GET', 'POST'])
 def exponencial():
     if request.method == 'POST':
-        parte_real = float(request.form['parteReal'])
-        parte_imaginaria = float(request.form['parteImaginaria'])
+        complejo = complex(request.form['complejoExp'])
         exponente = float(request.form['exponente'])
-        resultado = potencia(parte_real, parte_imaginaria, exponente)
+        resultado = potencia(complejo.real, complejo.imag, exponente)
         return render_template('potenciacion_complejos.html', resultado=resultado)
     else:
         return render_template('potenciacion_complejos.html')
@@ -77,10 +74,9 @@ def exponencial():
 @app.route('/complejos_raiz', methods=['GET', 'POST'])
 def raiz_cuadrada_complejo():
     if request.method == 'POST':
-        parte_real = float(request.form['parteReal'])
-        parte_imaginaria = float(request.form['parteImaginaria'])
+        complejo = complex(request.form['complejoRaiz'])
 
-        resultado1, resultado2 = raiz_cuadrada(parte_real, parte_imaginaria)
+        resultado1, resultado2 = raiz_cuadrada(complejo.real, complejo.imag)
         print(resultado1)
         print(resultado2)
         return render_template('raiz_cuadrada.html', resultado1=resultado1, resultado2=resultado2)
@@ -91,14 +87,6 @@ def raiz_cuadrada_complejo():
 @app.route('/cuadratica_complejos', methods=['GET', 'POST'])
 def resolvente():
     if request.method == 'POST':
-        """
-        parte_real1 = float(request.form['parteReal1'])
-        parte_imaginaria1 = float(request.form['parteImaginaria1'])
-        parte_real2 = float(request.form['parteReal2'])
-        parte_imaginaria2 = float(request.form['parteImaginaria2'])
-        parte_real3 = float(request.form['parteReal3'])
-        parte_imaginaria3 = float(request.form['parteImaginaria3'])
-        """
         complejo1 = complex(request.form['complejo1'])
         complejo2 = complex(request.form['complejo2'])
         complejo3 = complex(request.form['complejo3'])

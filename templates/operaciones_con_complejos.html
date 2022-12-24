@@ -45,24 +45,14 @@
   <h4> Operaciones con números complejos</h4>
   <form class="row g-3" action="/complejos_operaciones" method="POST">
     <div class="col-md-7">
-      <label for="parteReal1" class="form-label">Parte Real primer complejo</label>
-      <input type="number" class="form-control" name="parteReal1" id="parteReal1">
+      <label for="complejoOperaciones1" class="form-label">Primer Complejo</label>
+      <input type="text" class="form-control" name="complejoOperaciones1" id="complejoOperaciones1">
+    </div>
+        <div class="col-md-7">
+      <label for="complejoOperaciones2" class="form-label">Segundo Complejo</label>
+      <input type="text" class="form-control" name="complejoOperaciones2" id="complejoOperaciones2">
     </div>
     <div class="col-md-7">
-      <label for="parteImaginaria1" class="form-label">Parte Imaginaria primer complejo</label>
-      <input type="number" class="form-control" name="parteImaginaria1" id="parteImaginaria1">
-    </div>
-    <div class="col-md-7">
-      <label for="parteReal2" class="form-label">Parte Real segundo complejo</label>
-      <input type="number" class="form-control" name="parteReal2" id="parteReal2">
-    </div>
-    <div class="col-md-7">
-      <label for="parteImaginaria2" class="form-label">Parte Imaginaria segundo complejo</label>
-      <input type="number" class="form-control" name="parteImaginaria2" id="parteImaginaria2">
-    </div>
-      <!-- Example single danger button -->
-    <div class="col-md-7">
-
       <select name="operacion" id="operacion" class="form-select" aria-label="Default select example">
         <option selected>Selecciona la operación que querés realizar</option>
         <option value="suma">Suma</option>
@@ -73,7 +63,7 @@
     </div>
 
     <div class="col-12">
-      <button type="submit" class="btn btn-primary" >Mostrar número complejo</button>
+      <button type="submit" class="btn btn-primary" >Realizar operación</button>
     </div>
   </form>
 </div>

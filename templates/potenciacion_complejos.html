@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <title>{{operacion}}</title>
+  <title>Potenciación</title>
   <!-- Favicon-->
   <link rel="icon" type="image/x-icon" href="../static/imagenes/logo.png" />
   <!-- Bootstrap icons-->
@@ -45,18 +45,13 @@
   <h4> Potencia natural de un número complejo</h4>
   <form class="row g-3" action="/complejos_exponente" method="POST">
     <div class="col-md-7">
-      <label for="parteReal" class="form-label">Parte Real</label>
-      <input type="number" class="form-control" name="parteReal" id="parteReal">
-    </div>
-    <div class="col-md-7">
-      <label for="parteImaginaria" class="form-label">Parte Imaginaria</label>
-      <input type="number" class="form-control" name="parteImaginaria" id="parteImaginaria">
+      <label for="complejoExp" class="form-label">Número complejo</label>
+      <input type="text" class="form-control" name="complejoExp" id="complejoExp">
     </div>
     <div class="col-md-7">
       <label for="exponente" class="form-label">Exponente</label>
       <input type="number" class="form-control" name="exponente" id="exponente">
     </div>
-
     <div class="col-12">
       <button type="submit" class="btn btn-primary" >Calcular potencia</button>
     </div>
