@@ -1,7 +1,4 @@
 import cmath
-import math
-
-from Complejos.formas_complejos.polar import modulo_complejo, fase_complejo
 
 
 def binomica_a_polar(parte_real, parte_imaginaria):
@@ -14,7 +11,6 @@ def binomica_a_polar(parte_real, parte_imaginaria):
 
 
 def polar_a_binomica(modulo, fase):
-    fase = fase * math.pi / 180
     binomica = cmath.rect(modulo, fase)
 
     return binomica

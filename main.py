@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 
 from Complejos.calculos.operaciones import suma_complejos, resta_complejos, multiplicacion, division, potencia, \
-    raiz_cuadrada, bhaskara, logaritmo_natural_complejo
+    raiz_cuadrada, bhaskara, logaritmo_natural_complejo, suma_funciones_por_fasores
 from Complejos.formas_complejos.binomica import forma_binomica
 from Complejos.formas_complejos.exponencial import forma_exponencial
 from Complejos.formas_complejos.polar import forma_polar
@@ -77,8 +77,7 @@ def raiz_cuadrada_complejo():
         complejo = complex(request.form['complejoRaiz'])
 
         resultado1, resultado2 = raiz_cuadrada(complejo)
-        print(resultado1)
-        print(resultado2)
+
         return render_template('raiz_cuadrada.html', resultado1=resultado1, resultado2=resultado2)
     else:
         return render_template('raiz_cuadrada.html')
@@ -90,13 +89,9 @@ def resolvente():
         complejo1 = complex(request.form['complejo1'])
         complejo2 = complex(request.form['complejo2'])
         complejo3 = complex(request.form['complejo3'])
-        print(complejo1)
-        print(complejo2)
-        print(complejo3)
 
         resultado1, resultado2 = bhaskara(complejo1, complejo2, complejo3)
-        print(resultado1)
-        print(resultado2)
+
         return render_template('ecuacion_compleja.html', resultado1=resultado1, resultado2=resultado2)
     else:
         return render_template('ecuacion_compleja.html')
@@ -106,12 +101,29 @@ def resolvente():
 def logaritmo_natural():
     if request.method == 'POST':
         complejo = complex(request.form['logNatural'])
-        print(complejo)
 
         resultado = logaritmo_natural_complejo(complejo)
         return render_template('logaritmo_natural.html', resultado=resultado)
     else:
         return render_template('logaritmo_natural.html')
+
+
+@app.route('/fasores', methods=['GET', 'POST'])
+def fasores():
+    if request.method == 'POST':
+        modulo1 = float(request.form['amplitud1'])
+        fase1 = float(request.form['fase1'])
+
+        modulo2 = float(request.form['amplitud2'])
+        fase2 = float(request.form['fase2'])
+
+        frecuencia = float(request.form['frecuencia'])
+
+        resultado = suma_funciones_por_fasores(modulo1, fase1, modulo2, fase2, frecuencia)
+        print(resultado)
+        return render_template('suma_fasores.html', resultado=resultado)
+    else:
+        return render_template('suma_fasores.html')
 
 
 if __name__ == '__main__':

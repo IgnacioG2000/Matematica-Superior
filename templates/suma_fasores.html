@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <title>Raiz Cuadrada</title>
+  <title>Fasores</title>
   <!-- Favicon-->
   <link rel="icon" type="image/x-icon" href="../static/imagenes/logo.png" />
   <!-- Bootstrap icons-->
@@ -16,6 +16,7 @@
 <body>
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg bg-color3" >
+  <div class="container-fluid">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
@@ -43,22 +44,55 @@
 <!-- Section-->
 <div class="formularioComplejos">
     <br>
-  <h4> Raiz cuadrada de un número complejo</h4>
-  <form class="row g-3" action="/complejos_raiz" method="POST">
+    <h4> Suma de funciones por fasores</h4>
+    <h6>Primera función</h6>
+  <form class="row g-3" action="/fasores" method="POST">
     <div class="col-md-7">
-      <label for="complejoRaiz" class="form-label">Complejo a calcular la raiz</label>
-      <input type="text" class="form-control" name="complejoRaiz" id="complejoRaiz">
+      <label for="amplitud1" class="form-label">Amplitud</label>
+      <input type="number" step="any" class="form-control" name="amplitud1" id="amplitud1">
     </div>
-    <div class="col-12">
-      <button type="submit" class="btn btn-primary" >Calcular raiz cuadrada</button>
+    <div class="col-md-7">
+      <label for="fase1" class="form-label">Fase</label>
+      <input type="number" step="any" class="form-control" name="fase1" id="fase1">
+    </div>
+    <div class="col-md-7">
+      <select name="tipoFuncion1" id="tipoFuncion1" class="form-select" aria-label="Default select example">
+        <option selected>Selecciona el tipo de función trigonométrica</option>
+        <option value="cos">Coseno</option>
+        <option value="sen">Seno</option>
+      </select>
+    </div>
+    <h6>Segunda función</h6>
+    <div class="col-md-7">
+      <label for="amplitud2" class="form-label">Amplitud</label>
+      <input type="number" step="any" class="form-control" name="amplitud2" id="amplitud2">
+    </div>
+    <div class="col-md-7">
+      <label for="fase1" class="form-label">Fase</label>
+      <input type="number" step="any" class="form-control" name="fase2" id="fase2">
+    </div>
+    <div class="col-md-7">
+      <select name="tipoFuncion2" id="tipoFuncion2" class="form-select" aria-label="Default select example">
+        <option selected>Selecciona el tipo de función trigonométrica</option>
+        <option value="cos">Coseno</option>
+        <option value="sen">Seno</option>
+      </select>
+    </div>
+
+    <br>
+    <div class="col-md-7">
+      <label for="frecuencia" class="form-label">Frecuencia de las señales</label>
+      <input type="number" class="form-control" name="frecuencia" id="frecuencia">
+    </div>
+
+     <div class="col-12">
+      <button type="submit" class="btn btn-primary" >Realizar suma por fasores</button>
     </div>
   </form>
 </div>
 <p>
-  {% if resultado1 %}
-  {%if resultado2 %}
-  Los resultados son: {{resultado1}} y {{resultado2}}
-  {%endif%}
+  {%if resultado%}
+  El resultado es: {{resultado}}
   {%endif%}
 </p>
 <!-- Footer-->
