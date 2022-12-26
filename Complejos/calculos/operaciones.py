@@ -61,7 +61,7 @@ def bhaskara(a, b, c):
     return resultado1, resultado2
 
 
-def suma_funciones_por_fasores(modulo1, fase1, modulo2, fase2, frecuencia):
+def suma_funciones_por_fasores(modulo1, fase1, tipo_senial1, modulo2, fase2, tipo_senial_2, frecuencia):
 
     fase1 = math.radians(fase1)
     fase2 = math.radians(fase2)
@@ -75,4 +75,4 @@ def suma_funciones_por_fasores(modulo1, fase1, modulo2, fase2, frecuencia):
 
     resultado = binomica_a_polar(suma_fasores.real, suma_fasores.imag)
 
-    return str(resultado[0]) + "cos(" + str(frecuencia) + str(resultado[1]) + ")"
+    return str(resultado[0]) + str(tipo_senial1) + "(" + str(frecuencia) + "t" + str(resultado[1]) + ")"

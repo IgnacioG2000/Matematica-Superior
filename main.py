@@ -113,13 +113,15 @@ def fasores():
     if request.method == 'POST':
         modulo1 = float(request.form['amplitud1'])
         fase1 = float(request.form['fase1'])
+        tipo_senial1 = request.form['tipoFuncion1']
 
         modulo2 = float(request.form['amplitud2'])
         fase2 = float(request.form['fase2'])
+        tipo_senial2 = request.form['tipoFuncion2']
 
-        frecuencia = float(request.form['frecuencia'])
+        frecuencia = request.form['frecuencia']
 
-        resultado = suma_funciones_por_fasores(modulo1, fase1, modulo2, fase2, frecuencia)
+        resultado = suma_funciones_por_fasores(modulo1, fase1, tipo_senial1, modulo2, fase2, tipo_senial2, frecuencia)
         print(resultado)
         return render_template('suma_fasores.html', resultado=resultado)
     else:
