@@ -71,12 +71,9 @@ def suma_funciones_por_fasores(modulo1, fase1, tipo_senial1, modulo2, fase2, tip
         elif tipo_senial2 == 'sen':
             fase2 -= math.pi / 2
     binomica_1 = polar_a_binomica(modulo1, fase1)
-    print(binomica_1)
     binomica_2 = polar_a_binomica(modulo2, fase2)
-    print(binomica_2)
 
     suma_fasores = suma_complejos(binomica_1, binomica_2)
-    print(suma_fasores)
 
     resultado = binomica_a_polar(suma_fasores.real, suma_fasores.imag)
 
