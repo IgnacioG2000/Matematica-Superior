@@ -1,11 +1,7 @@
 from flask import Flask, render_template, request
 
-from Complejos.calculos.operaciones import suma_complejos, resta_complejos, multiplicacion, division, potencia, \
-    raiz_cuadrada, bhaskara, logaritmo_natural_complejo, suma_funciones_por_fasores
-from Complejos.formas_complejos.binomica import forma_binomica
-from Complejos.formas_complejos.exponencial import forma_exponencial
-from Complejos.formas_complejos.polar import forma_polar
-from Complejos.formas_complejos.trigonometrica import forma_trigonometrica
+from Complejos.calculos.operaciones import potencia,raiz_cuadrada, bhaskara, logaritmo_natural_complejo, suma_funciones_por_fasores
+from funciones_auxiliares import mostrar_complejo_segun_opcion, realizar_operacion_segun_operador
 
 app = Flask(__name__)
 
@@ -20,19 +16,10 @@ def complejos_con_grafico():
     if request.method == 'POST':
         parte_real = float(request.form['parteReal'])
         parte_imaginaria = float(request.form['parteImaginaria'])
-        operacion = request.form['visualizacion']
-        if operacion == 'binomica':
-            complejo_binomica = forma_binomica(parte_real, parte_imaginaria)
-            return render_template('complejos_con_grafico.html', complejo=complejo_binomica, operacion=operacion)
-        elif operacion == 'exponencial':
-            complejo_exponencial = forma_exponencial(parte_real, parte_imaginaria)
-            return render_template('complejos_con_grafico.html', complejo=complejo_exponencial, operacion=operacion)
-        elif operacion == 'trigonometrica':
-            complejo_trigonometrica = forma_trigonometrica(parte_real, parte_imaginaria)
-            return render_template('complejos_con_grafico.html', complejo=complejo_trigonometrica, operacion=operacion)
-        else:
-            complejo_polar = forma_polar(parte_real, parte_imaginaria)
-            return render_template('complejos_con_grafico.html', complejo=complejo_polar, operacion=operacion)
+        opcion = request.form['visualizacion']
+
+        return mostrar_complejo_segun_opcion(parte_real, parte_imaginaria, opcion, 'complejos_con_grafico.html')
+
     else:
         return render_template('complejos_con_grafico.html')
 
@@ -43,18 +30,8 @@ def operaciones_complejos():
         complejo1 = complex(request.form['complejoOperaciones1'])
         complejo2 = complex(request.form['complejoOperaciones2'])
         operacion = request.form['operacion']
-        if operacion == 'suma':
-            complejo_suma = suma_complejos(complejo1, complejo2)
-            return render_template('operaciones_con_complejos.html', complejo=complejo_suma, operacion=operacion)
-        elif operacion == 'resta':
-            complejo_resta = resta_complejos(complejo1, complejo2)
-            return render_template('complejos_con_grafico.html', complejo=complejo_resta, operacion=operacion)
-        elif operacion == 'multiplicacion':
-            complejo_multiplicacion = multiplicacion(complejo1, complejo2)
-            return render_template('complejos_con_grafico.html', complejo=complejo_multiplicacion, operacion=operacion)
-        else:
-            complejo_cociente = division(complejo1, complejo2)
-            return render_template('complejos_con_grafico.html', complejo=complejo_cociente, operacion=operacion)
+
+        return realizar_operacion_segun_operador(complejo1, complejo2, operacion, 'operaciones_con_complejos.html')
 
     else:
         return render_template('operaciones_con_complejos.html')
