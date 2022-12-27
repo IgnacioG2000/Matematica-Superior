@@ -114,11 +114,11 @@ def fasores():
         modulo1 = float(request.form['amplitud1'])
         fase1 = float(request.form['fase1'])
         tipo_senial1 = request.form['tipoFuncion1']
-
+        print(tipo_senial1)
         modulo2 = float(request.form['amplitud2'])
         fase2 = float(request.form['fase2'])
         tipo_senial2 = request.form['tipoFuncion2']
-
+        print(tipo_senial2)
         frecuencia = request.form['frecuencia']
 
         resultado = suma_funciones_por_fasores(modulo1, fase1, tipo_senial1, modulo2, fase2, tipo_senial2, frecuencia)
