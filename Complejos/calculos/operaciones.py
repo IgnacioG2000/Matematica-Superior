@@ -84,8 +84,5 @@ def suma_funciones_por_fasores(modulo1, fase1, tipo_senial1, modulo2, fase2, tip
 
     resultado = binomica_a_polar(suma_fasores.real, suma_fasores.imag)
 
-    if resultado[1] >= 0:
-        resultado_fase = "+" + str(resultado[1])
-        return str(resultado[0]) + opcion_muestra + "(" + str(frecuencia) + "t" + str(resultado_fase) + ")"
-    else:
-        return str(resultado[0]) + opcion_muestra + "(" + str(frecuencia) + "t" + str(resultado[1]) + ")"
+    return str(resultado[0]) + opcion_muestra + "(" + str(frecuencia) + "t" + (
+        "+" + str(resultado[1]) if resultado[1] >= 0 else str(resultado[1])) + ")"
