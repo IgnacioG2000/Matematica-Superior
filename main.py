@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 
-from Complejos.calculos.operaciones import potencia,raiz_cuadrada, bhaskara, logaritmo_natural_complejo, suma_funciones_por_fasores
+from Complejos.calculos.operaciones import potencia, raiz_cuadrada, bhaskara, logaritmo_natural_complejo, \
+    suma_funciones_por_fasores
 from funciones_auxiliares import mostrar_complejo_segun_opcion, realizar_operacion_segun_operador
 
 app = Flask(__name__)
@@ -98,7 +99,10 @@ def fasores():
 
         frecuencia = request.form['frecuencia']
 
-        resultado = suma_funciones_por_fasores(modulo1, fase1, tipo_senial1, modulo2, fase2, tipo_senial2, frecuencia)
+        #TODO: hacer el hidden como en dds -> si el tipo de senial 1 y 2 son diferentes, que se muestre este select
+        opcion_muestra = request.form['tipoFuncionSuma']
+
+        resultado = suma_funciones_por_fasores(modulo1, fase1, tipo_senial1, modulo2, fase2, tipo_senial2, frecuencia, opcion_muestra)
 
         return render_template('suma_fasores.html', resultado=resultado)
     else:

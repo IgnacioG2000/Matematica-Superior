@@ -61,15 +61,22 @@ def bhaskara(a, b, c):
     return resultado1, resultado2
 
 
-def suma_funciones_por_fasores(modulo1, fase1, tipo_senial1, modulo2, fase2, tipo_senial2, frecuencia):
-
+def suma_funciones_por_fasores(modulo1, fase1, tipo_senial1, modulo2, fase2, tipo_senial2, frecuencia, opcion_muestra):
+    resultado_fase = ""
     fase1 = math.radians(fase1)
     fase2 = math.radians(fase2)
     if tipo_senial1 != tipo_senial2:
-        if tipo_senial1 == 'sen':
-            fase1 -= math.pi / 2
-        elif tipo_senial2 == 'sen':
-            fase2 -= math.pi / 2
+        if opcion_muestra == 'sen':
+            if tipo_senial1 == 'cos':
+                fase1 += math.pi / 2
+            elif tipo_senial2 == 'cos':
+                fase2 += math.pi / 2
+        else:
+            if tipo_senial1 == 'sen':
+                fase1 -= math.pi / 2
+            elif tipo_senial2 == 'sen':
+                fase2 -= math.pi / 2
+
     binomica_1 = polar_a_binomica(modulo1, fase1)
     binomica_2 = polar_a_binomica(modulo2, fase2)
 
@@ -77,4 +84,8 @@ def suma_funciones_por_fasores(modulo1, fase1, tipo_senial1, modulo2, fase2, tip
 
     resultado = binomica_a_polar(suma_fasores.real, suma_fasores.imag)
 
-    return str(resultado[0]) + str(tipo_senial1) + "(" + str(frecuencia) + "t" + str(resultado[1]) + ")"
+    if resultado[1] >= 0:
+        resultado_fase = "+" + str(resultado[1])
+        return str(resultado[0]) + opcion_muestra + "(" + str(frecuencia) + "t" + str(resultado_fase) + ")"
+    else:
+        return str(resultado[0]) + opcion_muestra + "(" + str(frecuencia) + "t" + str(resultado[1]) + ")"
