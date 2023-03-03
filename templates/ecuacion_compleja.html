@@ -3,8 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
   <title>Ecuación</title>
   <!-- Favicon-->
   <link rel="icon" type="image/x-icon" href="../static/imagenes/logo.png" />
@@ -37,6 +41,14 @@
             <li><a class="dropdown-item" href="/cuadratica_complejos">Resolver ecuación cuadrática</a></li>
             <li><a class="dropdown-item" href="/fasores">Sumar 2 funciones sinusoidales por fasores</a></li>
           </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Transformada de Laplace
+        </a>
+        <ul class="dropdown-menu" id="seleccionLaplace">
+            <li><a class="dropdown-item" href="/teoriaLaplace">Introducción Teórica</a></li>
+        </ul>
         </li>
       </ul>
 

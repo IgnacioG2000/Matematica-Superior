@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<script type="text/x-mathjax-config">
+    <script type="text/x-mathjax-config">
   MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
 </script>
 <script type="text/javascript"
   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
-  <title>Potenciación</title>
+  <title>Teoria Laplace</title>
   <!-- Favicon-->
   <link rel="icon" type="image/x-icon" href="../static/imagenes/logo.png" />
   <!-- Bootstrap icons-->
@@ -42,42 +42,75 @@
             <li><a class="dropdown-item" href="/fasores">Sumar 2 funciones sinusoidales por fasores</a></li>
           </ul>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Transformada de Laplace
         </a>
         <ul class="dropdown-menu" id="seleccionLaplace">
             <li><a class="dropdown-item" href="/teoriaLaplace">Introducción Teórica</a></li>
         </ul>
-        </li>
       </ul>
 
     </div>
   </div>
 </nav>
 <!-- Section-->
-<div class="formularioComplejos">
-    <br>
-  <h4> Potencia natural de un número complejo</h4>
-  <form class="row g-3" action="/complejos_exponente" method="POST">
-    <div class="col-md-7">
-      <label for="complejoExp" class="form-label">Número complejo</label>
-      <input type="text" class="form-control" name="complejoExp" id="complejoExp">
-    </div>
-    <div class="col-md-7">
-      <label for="exponente" class="form-label">Exponente</label>
-      <input type="number" class="form-control" name="exponente" id="exponente">
-    </div>
-    <div class="col-12">
-      <button type="submit" class="btn btn-primary" >Calcular potencia</button>
-    </div>
-  </form>
+<div class="teoriaLaplace" href="/teoriaLaplace">
+  <div class="idc-box">
+    <p class="idc-titulo">Contenidos</p>
+    <ul class="idc-lista">
+      <li><a href="#recordando_fourier"> Recordando Fourier</a></li>
+      <li><a href="#intro"> Introducción</a></li>
+      <li><a href="#teorema_existencia"> Teorema de Existencia</a></li>
+      <li><a href="#propiedades"> Propiedades de la Transformada de Laplace</a></li>
+      <li><a href="#eval_integrales"> Evaluación de Integrales</a></li>
+      <li><a href="#funciones_especiales"> Funciones Especiales</a></li>
+      <li><a href="#convolucion"> Teorema de Convolución/ De Borel</a></li>
+    </ul>
+  </div>
+
+  <h2 id="recordando_fourier">
+    Recordando Fourier
+  </h2>
+  <p>
+    Vamos a recordar un poco la transformada de Fourier:
+
+\(F({\omega})\) = \({\displaystyle \int_{-\infty}^{\infty} f(t){\bullet} {e}^{-j{ω}t}dt}\)
+<br>
+Recordar:
+    \(F({\omega}): \mathbb{R} {\to} \mathbb{C}\) (función compleja de variable real)
+  </p>
+    <h2 id="intro">
+    Introducción
+  </h2>
+  Lo que va a proponer Laplace es una nueva transformada que permita calcularse para aquellas funciones que no sean de modulo integrable bajo ciertas condiciones: agregar un termino a la transformada propuesta por Fourier para que exista la integral en todo el dominio
+
+Reacomodando los términos se llega a:
+
+\(F(s) = {\displaystyle \int_{-\infty}^{\infty} f(t){\bullet} {e}^{-st}}dt\)
+
+Nosotros vamos a estar viendo la transformada de Laplace **unilateral derecha**
+
+\(F(s) = {\displaystyle \int_0^{\infty} f(t){\bullet} {e}^{-st}}dt\)
+  \(donde Re(s) = a{\geq}0\) para que sea exponencial decreciente
+
+\(F(s): \mathbb{C} {\to} \mathbb{C}\) (función compleja de variable compleja)
+
+      <h2 id="teorema_existencia">
+    Teorema de Existencia
+  </h2>
+
+  Sea \(f(t)\) una función seccionalmente continua en todo intervalo [0;N] y \(f(t)\) de orden exponencial γ
+  para t > N \({\to}\) \({∃}\) \(\mathcal{L}[f(t)]\)
+
+  <h3>Qué es una función de orden exponencial?</h3>
+
+  La función \(f(t)\) es de orden exponencial γ $\leftrightarrow$ ∃ M,γ ∈ $\mathbb{R}$ $/$ $∀$ $t>N: |e^{-γt}f(t)|$< M si t ${\to}$ $∞$
+
+Observación: la condición  $|e^{-γt}f(t)|< M$ $≡$ $f(t)< Me^{-γt}$ (funcion f(t) en módulo no puede crecer más que $Me^{-γt}$)
 </div>
-<p>
-  {%if resultado%}
-  El resultado es: {{resultado}}
-  {%endif%}
-</p>
+
+
+
 <!-- Footer-->
 <footer class="py-5 bg-color1 fixed-bottom">
   <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Ignacio García 2023</p></div>
