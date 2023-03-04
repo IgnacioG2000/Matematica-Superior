@@ -72,49 +72,211 @@
     Recordando Fourier
   </h2>
   <p>
-    Vamos a recordar un poco la transformada de Fourier:
+Vamos a recordar un poco la transformada de Fourier:
 
-\(F({\omega})\) = \({\displaystyle \int_{-\infty}^{\infty} f(t){\bullet} {e}^{-j{ω}t}dt}\)
-<br>
-Recordar:
-    \(F({\omega}): \mathbb{R} {\to} \mathbb{C}\) (función compleja de variable real)
+$F({\omega}) = {\displaystyle \int_{-\infty}^{\infty} f(t){\bullet} {e}^{-j{ω}t}dt} $
+
+    <br>
+Recordar: $F({\omega}): \mathbb{R} {\to} \mathbb{C}$ (función compleja de variable real)
   </p>
     <h2 id="intro">
     Introducción
   </h2>
-  Lo que va a proponer Laplace es una nueva transformada que permita calcularse para aquellas funciones que no sean de modulo integrable bajo ciertas condiciones: agregar un termino a la transformada propuesta por Fourier para que exista la integral en todo el dominio
+Lo que va a proponer Laplace es una nueva transformada que permita calcularse para aquellas funciones que no sean de **modulo integrable** bajo ciertas condiciones: agregar un termino a la transformada propuesta por Fourier para que exista la integral en todo el dominio
+
+$F({\omega}, a) = {\displaystyle \int_{-\infty}^{\infty} f(t){\bullet} {e}^{-j{ω}t}{\bullet}{e}^{-at}dt}$
 
 Reacomodando los términos se llega a:
 
-\(F(s) = {\displaystyle \int_{-\infty}^{\infty} f(t){\bullet} {e}^{-st}}dt\)
+$F(s) = {\displaystyle \int_{-\infty}^{\infty} f(t){\bullet} {e}^{-st}}dt$
 
 Nosotros vamos a estar viendo la transformada de Laplace **unilateral derecha**
 
-\(F(s) = {\displaystyle \int_0^{\infty} f(t){\bullet} {e}^{-st}}dt\)
-  \(donde Re(s) = a{\geq}0\) para que sea exponencial decreciente
-
-\(F(s): \mathbb{C} {\to} \mathbb{C}\) (función compleja de variable compleja)
+$F(s) = {\displaystyle \int_0^{\infty} f(t){\bullet} {e}^{-st}}dt$ donde $Re(s) = a{\geq}0$ para que sea exponencial decreciente
+<br>
+$F(s): \mathbb{C} {\to} \mathbb{C}$ (función compleja de variable compleja)
 
       <h2 id="teorema_existencia">
     Teorema de Existencia
   </h2>
 
-  Sea \(f(t)\) una función seccionalmente continua en todo intervalo [0;N] y \(f(t)\) de orden exponencial γ
-  para t > N \({\to}\) \({∃}\) \(\mathcal{L}[f(t)]\)
+Sea $f(t)$ una función **seccionalmente continua** en todo intervalo [0;N]
+  y $f(t)$ de **orden exponencial** γ para t > N ${\to}$ ${∃}$ $\mathcal{L}[f(t)]$
 
-  <h3>Qué es una función de orden exponencial?</h3>
+  <h5>Qué es una función de orden exponencial?</h5>
 
-  La función \(f(t)\) es de orden exponencial γ $\leftrightarrow$ ∃ M,γ ∈ $\mathbb{R}$ $/$ $∀$ $t>N: |e^{-γt}f(t)|$< M si t ${\to}$ $∞$
+  La función $f(t)$ es de orden exponencial γ $\leftrightarrow$ ∃ M,γ ∈ $\mathbb{R}$ $/$ $∀$ $t>N: |e^{-γt}f(t)|$< M si t ${\to}$ $∞$
 
+<br>
 Observación: la condición  $|e^{-γt}f(t)|< M$ $≡$ $f(t)< Me^{-γt}$ (funcion f(t) en módulo no puede crecer más que $Me^{-γt}$)
+
+        <h2 id="propiedades">
+    Propiedades de la Transformada de Laplace
+  </h2>
+      <h5>Linealidad</h5>
+  Si $F(s)$ = $\mathcal{L}[f(t)]$ ∧ $\mathcal{L}[g(t)]$ ∧ $k_1$,$k_2$ ∈ $\mathbb{R}$
+  ${\to}$ $\mathcal{L}[k_1f(t) \pm k_2g(t)] = k_1F(s)\pm k_2G(s)$
+
+      <h5>Primera Propiedad de Traslación</h5>
+  Si $F(s)$ = $\mathcal{L}[f(t)]$ ${\to}$ $\mathcal{L}[e^{at}f(t)] = F(s-a)$
+
+<br>
+Esto quiere decir que multiplicar por $e^{at}$ en el tiempo equivale a efectuar una traslación de "a" unidades en el dominio transformado de Laplace
+
+      <h5>Segunda Propiedad de Traslación</h5>
+
+  Si $F(s)$ = $\mathcal{L}[f(t)]$ ∧
+$g(t) =
+  \begin{cases}
+    f(t-a)       & \quad \text{si } t \text{ > a}\\
+    0  & \quad \text{si } t \text{ < a}
+  \end{cases}
+$
+${\to}$ $\mathcal{L}[g(t)] = e^{-as}F(s)$
+
+  <br>
+Esto significa que una traslación de "a" unidades hacia la derecha en el tiempo equivale a multiplicar por $e^{-as}$ en el dominio transformado de Laplace
+
+      <h5>Cambio de Escala</h5>
+  Si $F(s)$ = $\mathcal{L}[f(t)]$ ${\to}$ $\mathcal{L}[f(at)] = \frac{1}{a}F(\frac {s}{a})$
+
+      <h5>Transformada de Laplace de las Derivadas</h5>
+
+  Si $F(s)$ = $\mathcal{L}[f(t)]$ ${\to}$ $\mathcal{L}[f'(t)] = sF(s) - f(0)$
+<br>
+Generalización para derivadas de orden superior:
+<br>
+$\mathcal{L}[f''(t)] = s^2F(s) - sf(0) - f'(0)$
+<br>
+$\mathcal{L}[f'''(t)] = s^3F(s) - s^2f(0) - sf'(0) - f''(0)$
+
+  <h5>Transformada de Laplace de las Integrales</h5>
+
+  Si $F(s)$ = $\mathcal{L}[f(t)]$ ${\to}$ $\mathcal{L}[{\displaystyle \int_0^{t} f(u)du]} = \frac{F(s)}{s}$
+
+  <h5>Multiplicacion por $t^n$</h5>
+
+  Si $F(s)$ = $\mathcal{L}[f(t)]$ ${\to}$ $\mathcal{L}[t^nf(t)] = (-1)^nF^{(n)}(s)$
+
+  <h5>División por $t$</h5>
+
+  Si $F(s)$ = $\mathcal{L}[f(t)]$ ${\to}$ $\mathcal{L}[\frac{f(t)}{t}] = {\displaystyle \int_s^{∞} F(u)du}$
+  SIEMPRE Y CUANDO $∃$ $\lim\limits_{t \to 0} \frac{f(t)}{t}$
+
+  <h5>Teorema del valor inicial</h5>
+
+  Si existen los límites indicados, se cumple: $\lim\limits_{t \to 0} f(t)$ = $\lim\limits_{s \to ∞} sF(s)$
+
+  <h5>Teorema del valor final</h5>
+
+  Si existen los límites indicados, se cumple: $\lim\limits_{t \to ∞} f(t)$ = $\lim\limits_{s \to 0} sF(s)$
+
+          <h2 id="eval_integrales">
+    Evaluación de Integrales por Transformada de Laplace
+  </h2>
+  La Transformada de Laplace nos va a permitir calcular en forma rápida resultados numéricos de integrales impropias, cuya resolución analítica sería extensa, tediosa, e incluso a veces imposible (por no existir primitiva)
+
+  <br>
+Si $F(s)$ = $\mathcal{L}[f(t)]$ entonces por definición se cumple que ${\displaystyle \int_0^{\infty} f(t){\bullet} {e}^{-st}}dt = F(s)$
+
+  <br>
+Tomando limite para s ${\to}$0, es: ${\displaystyle \int_0^{\infty} f(t)dt} = F(0)$ siempre que la integral converja
+
+  <br>
+Generalizando:
+
+  <br>
+Tomando limite para s ${\to}$a, es: ${\displaystyle \int_a^{\infty} f(t)dt} = F(a)$ siempre que la integral converja
+
+            <h2 id="funciones_especiales">
+    Funciones Especiales
+  </h2>
+
+  <h5>Función Impulso Unitario / Delta de Dirac</h5>
+
+  Muchas veces, nos vemos en la necesidad de representar una situación en la cual hay un valor de
+algo en un lapso de tiempo muy pequeño, por ejemplo si aplicamos en un instante dado una fuerza
+a un bloque de masa, y enseguida lo soltamos para ver como responde.
+¿Es eso una función? Solamente tendría un valor en t=0 y en el resto sería nula.
+
+Consideremos el siguiente rectángulo de área unitaria:
+<br>
+  <img src="../static/imagenes/impulso_unitario.png">
+  <br>
+  ${\displaystyle \int_0^{τ} \frac{1}{τ} dτ} = 1$ ${\to}$ Por eso es unitario
+
+A menor τ, más chica es la base y más grande la altura. Si hacemos tender τ ${\to}0$, la altura tiende a $∞$
+
+  <br>
+
+  <img src="../static/imagenes/def_impulso.png">
+
+  <br>
+
+  Definimos la función Delta o impulso unitario $δ(t) = \lim\limits_{t \to 0} F_τ(t)$
+
+siendo $F_τ(t) =
+  \begin{cases}
+    \frac{1}{τ}       & \quad \text{si } t \text{ 0 $\leq$ t < τ }\\
+    0  & \quad \text{si } t \text{ > 0}
+  \end{cases}
+$
+  <br>
+
+  La transformada de Laplace del impulso unitario es:
+
+$\mathcal{L}[δ(t)] = 1$
+
+  <h5>Función Escalón Unitario / Heaviside</h5>
+
+  Esta función es muy importante, ya que multiplicada por alguna constante, puede representar
+funciones constantes a partir de un instante dado, como por ejemplo, una señal de tensión
+continua en un circuito eléctrico, una fuerza constante aplicada sobre algún sistema mecánico, etc.
+
+  <br>
+
+  $E(t) =
+  \begin{cases}
+    1       & \quad \text{si } t \text{ > 0}\\
+    0  & \quad \text{si } t \text{ < 0}
+  \end{cases}
+$
+
+$E(t-a) =
+  \begin{cases}
+    1       & \quad \text{si } t \text{ > a}\\
+    0  & \quad \text{si } t \text{ < a}
+  \end{cases}
+$
+  <br>
+
+  <img src="../static/imagenes/heaviside.png">
+  <br>
+  La transformada de Laplace del Escalón Unitario es:
+
+$\mathcal{L}[E(t-a)] = \frac{e^{-sa}}{s}$
+
+Observación: también podría haberse calculado aplicando la segunda propiedad de la traslación.
+  <br>
+
+  Utilizando funciones escalones desplazados podemos dar funciones que tienen
+diferentes expresiones en distintos intervalos, pero escribiendo en un solo renglón, y ello facilita el
+cálculo de la Transformada de Laplace.
+
+  <br>
+  <img src="../static/imagenes/ej_heaviside.png">
+
+              <h2 id="convolucion">
+    Teorema de Convolución o Teorema de Borel
+  </h2>
+
+  Si $f(t)= \mathcal{L}^{-1}[F(s)]$ ∧ $g(t)= \mathcal{L}^{-1}[G(s)]$ ${\to}$ $\mathcal{L}^{-1}[F(s){\bullet}G(s)] = {\displaystyle \int_0^t f(u)g(t-u)}du$
+<br>
+Es una propiedad que nos ofrece una forma de antitransformar el producto de dos funciones en el dominio "s".
+El resultado de la integral nos queda en función de "t" al aplicar Barrow.
+
 </div>
 
-
-
-<!-- Footer-->
-<footer class="py-5 bg-color1 fixed-bottom">
-  <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Ignacio García 2023</p></div>
-</footer>
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Core theme JS-->
