@@ -9,7 +9,7 @@
 <script type="text/javascript"
   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
-  <title>Laplace</title>
+  <title>Ec Diferencial</title>
   <!-- Favicon-->
   <link rel="icon" type="image/x-icon" href="../static/imagenes/logo.png" />
   <!-- Bootstrap icons-->
@@ -48,6 +48,7 @@
         <ul class="dropdown-menu" id="seleccionLaplace">
             <li><a class="dropdown-item" href="/teoriaLaplace">Introducción Teórica</a></li>
             <li><a class="dropdown-item" href="/transf_laplace">Transformada de Laplace</a></li>
+            <li><a class="dropdown-item" href="/ec_diferencial_laplace">Ecuación Diferencial por Laplace</a></li>
         </ul>
         </li>
       </ul>
@@ -58,23 +59,72 @@
 <!-- Section-->
 <div class="formularioLaplace">
     <br>
-  <h4> Transformada de Laplace</h4>
-  <form class="row g-3" action="/transf_laplace" method="POST">
+  <h3> Resolución de Ecuación Diferencial por Transformada de Laplace</h3>
+  <form class="row g-3" action="/ec_diferencial_laplace" method="POST">
+
     <div class="col-md-7">
-      <label for="transformada" class="form-label">Transformada</label>
-      <input type="text" class="form-control" name="transformada" id="transformada">
+    <select name="tipoVariable" class="form-select" aria-label="Default select example">
+        <option selected>Selecciona la variable que quieras utilizar</option>
+        <option value="x">x</option>
+        <option value="y">y</option>
+        <option value="z">z</option>
+      </select>
     </div>
-      <!-- Example single danger button -->
+
+    <div class="col-md-7">
+    <select name="ordenEcuacion" class="form-select" aria-label="Default select example">
+        <option selected>Cuál es el orden de la ecuación diferencial</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select>
+    </div>
+
+    <h4>Coeficientes de la ecuación</h4>
+
+    <div class="col-auto">
+      <label for="coefDerivadaSegunda" class="form-label">Coeficiente de la segunda derivada</label>
+      <input type="number" class="form-control" name="coefDerivadaSegunda" id="coefDerivadaSegunda">
+    </div>
+
+    <div class="col-auto">
+      <label for="coefDerivadaPrimera" class="form-label">Coeficiente de la primera derivada</label>
+      <input type="number" class="form-control" name="coefDerivadaPrimera" id="coefDerivadaPrimera">
+    </div>
+
+    <div class="col-auto">
+      <label for="coefFuncion" class="form-label">Coeficiente de la función</label>
+      <input type="number" class="form-control" name="coefFuncion" id="coefFuncion">
+    </div>
+
+    <div class="col-auto">
+      <label for="terminoIndependiente" class="form-label">Término independiente</label>
+      <input type="text" class="form-control" name="terminoIndependiente" id="terminoIndependiente">
+    </div>
+
+    <h4>Valores iniciales</h4>
+    <div class="col-auto">
+      <label for="f0" class="form-label">$x(0)$</label>
+      <input type="number" class="form-control" name="f0" id="f0">
+    </div>
+
+    <div class="col-auto">
+      <label for="fp0" class="form-label">$x'(0)$</label>
+      <input type="number" class="form-control" name="fp0" id="fp0">
+    </div>
 
     <div class="col-12">
-      <button type="submit" class="btn btn-primary" >Mostrar transformada de Laplace</button>
+      <button type="submit" class="btn btn-primary" >Resolver Ecuación Diferencial</button>
     </div>
+
   </form>
 </div>
 
 <p>
-  {%if resultado%}
-    La transformada de Laplace es: ${{resultado}}$
+  {%if variable%}
+  {%if solucion%}
+    La solución de la ecuación diferencial es: ${{variable}}(t)$ $=$ ${{solucion}}$
+  {%endif%}
   {%endif%}
 </p>
 <!-- Footer-->

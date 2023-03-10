@@ -3,7 +3,9 @@ from flask import Flask, render_template, request
 from Complejos.calculos.operaciones import potencia, raiz_cuadrada, bhaskara, logaritmo_natural_complejo, \
     suma_funciones_por_fasores
 from funciones_auxiliares import mostrar_complejo_segun_opcion, realizar_operacion_segun_operador
-from laplace.operaciones import L
+from laplace.operaciones import L, armar_ecuacion, L_diff, resolver_ecuacion, inv_L
+from sympy.abc import t,s
+from sympy import Function
 
 app = Flask(__name__)
 
@@ -116,19 +118,52 @@ def teoria_laplace():
     return render_template('teoria_laplace.html')
 
 
-@app.route('/transf_laplace', methods=['GET','POST'])
+@app.route('/transf_laplace', methods=['GET', 'POST'])
 def transformada_laplace():
     if request.method == 'POST':
         transformada = str(request.form['transformada'])
 
-        print(transformada)
         resultado = L(transformada)
-        print(resultado)
 
         return render_template('transformada_laplace.html', resultado=resultado)
 
     else:
         return render_template('transformada_laplace.html')
+
+
+@app.route('/ec_diferencial_laplace', methods=['GET', 'POST'])
+def ec_dif_laplace():
+    if request.method == 'POST':
+        variable = str(request.form['tipoVariable'])
+        coef_deriv_segunda = int(request.form['coefDerivadaSegunda'])
+        coef_deriv_primera = int(request.form['coefDerivadaPrimera'])
+        coef_funcion = int(request.form['coefFuncion'])
+        term_indep = (request.form['terminoIndependiente'])
+        print(type(term_indep))
+        f0 = int(request.form['f0'])
+        print(type(f0))
+        fp0 = int(request.form['fp0'])
+
+
+        ec = armar_ecuacion(coef_deriv_segunda * L_diff(variable, f0, fp0, 0, 2) +
+                            coef_deriv_primera * L_diff(variable, f0, 0) +
+                            coef_funcion * L_diff(variable, 0, 0, 0, 0),
+                            L(term_indep))
+
+        print(ec)
+        variable = Function(variable.upper())(s)
+        solucion_en_laplace = resolver_ecuacion(ec, variable)
+        print(solucion_en_laplace)
+
+        solucion = inv_L(solucion_en_laplace[variable], t)
+
+        variable = Function(variable)(t)
+
+        return render_template('ec_diferenciales_laplace.html', solucion=solucion, variable=variable)
+
+    else:
+        return render_template('ec_diferenciales_laplace.html')
+
 
 if __name__ == '__main__':
     app.run(port=8080)
