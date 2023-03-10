@@ -9,7 +9,6 @@ from sympy import Function
 
 app = Flask(__name__)
 
-
 @app.route('/')
 def Index():
     return render_template('index.html')
@@ -138,8 +137,8 @@ def ec_dif_laplace():
         coef_deriv_segunda = int(request.form['coefDerivadaSegunda'])
         coef_deriv_primera = int(request.form['coefDerivadaPrimera'])
         coef_funcion = int(request.form['coefFuncion'])
-        term_indep = (request.form['terminoIndependiente'])
-        print(type(term_indep))
+        term_indep = str(request.form['terminoIndependiente'])
+        print(term_indep)
         f0 = int(request.form['f0'])
         print(type(f0))
         fp0 = int(request.form['fp0'])
@@ -153,11 +152,10 @@ def ec_dif_laplace():
         print(ec)
         variable = Function(variable.upper())(s)
         solucion_en_laplace = resolver_ecuacion(ec, variable)
+        solucion_en_laplace[variable].apart()
         print(solucion_en_laplace)
 
         solucion = inv_L(solucion_en_laplace[variable], t)
-
-        variable = Function(variable)(t)
 
         return render_template('ec_diferenciales_laplace.html', solucion=solucion, variable=variable)
 
