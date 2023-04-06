@@ -76,6 +76,8 @@ def suma_funciones_por_fasores(modulo1, fase1, tipo_senial1, modulo2, fase2, tip
                 fase1 -= math.pi / 2
             elif tipo_senial2 == 'sen':
                 fase2 -= math.pi / 2
+    else:
+        opcion_muestra = tipo_senial1
 
     binomica_1 = polar_a_binomica(modulo1, fase1)
     binomica_2 = polar_a_binomica(modulo2, fase2)
@@ -84,5 +86,5 @@ def suma_funciones_por_fasores(modulo1, fase1, tipo_senial1, modulo2, fase2, tip
 
     resultado = binomica_a_polar(suma_fasores.real, suma_fasores.imag)
 
-    return str(resultado[0]) + opcion_muestra + "(" + str(frecuencia) + "t" + (
+    return str(resultado[0]) + "*" + opcion_muestra + "(" + str(frecuencia) + "t" + (
         "+" + str(resultado[1]) if resultado[1] >= 0 else str(resultado[1])) + ")"

@@ -9,7 +9,7 @@
 <script type="text/javascript"
   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
-  <title>Operaciones</title>
+  <title>Laplace</title>
   <!-- Favicon-->
   <link rel="icon" type="image/x-icon" href="../static/imagenes/logo.png" />
   <!-- Bootstrap icons-->
@@ -22,7 +22,6 @@
 <body>
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg bg-color3" >
-  <div class="container-fluid">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
@@ -50,7 +49,6 @@
             <li><a class="dropdown-item" href="/teoriaLaplace">Introducción Teórica</a></li>
             <li><a class="dropdown-item" href="/transf_laplace">Transformada de Laplace</a></li>
             <li><a class="dropdown-item" href="/antitransf_laplace">Antitransformada de Laplace</a></li>
-            <li><a class="dropdown-item" href="/ec_diferencial_laplace">Ecuación Diferencial por Laplace</a></li>
         </ul>
         </li>
       </ul>
@@ -59,36 +57,26 @@
   </div>
 </nav>
 <!-- Section-->
-<div class="formularioOperaciones">
+<div class="formularioLaplace">
     <br>
-  <h4> Operaciones con números complejos</h4>
-  <form class="row g-3" action="/complejos_operaciones" method="POST">
+  <h4> Antitransformada de Laplace</h4>
+  <form class="row g-3" action="/antitransf_laplace" method="POST">
     <div class="col-md-7">
-      <label for="complejoOperaciones1" class="form-label">Primer Complejo</label>
-      <input type="text" class="form-control" name="complejoOperaciones1" id="complejoOperaciones1">
+      <label for="antitransformada" class="form-label">Función a antitransformar</label>
+      <input type="text" class="form-control" name="antitransformada" id="antitransformada">
     </div>
-        <div class="col-md-7">
-      <label for="complejoOperaciones2" class="form-label">Segundo Complejo</label>
-      <input type="text" class="form-control" name="complejoOperaciones2" id="complejoOperaciones2">
-    </div>
-    <div class="col-md-7">
-      <select name="operacion" id="operacion" class="form-select" aria-label="Default select example">
-        <option selected>Selecciona la operación que querés realizar</option>
-        <option value="suma">Suma</option>
-        <option value="resta">Resta</option>
-        <option value="multiplicacion">Multiplicación</option>
-        <option value="division">División</option>
-      </select>
-    </div>
+      <!-- Example single danger button -->
 
     <div class="col-12">
-      <button type="submit" class="btn btn-primary" >Realizar operación</button>
+      <button type="submit" class="btn btn-primary" >Mostrar antitransformada de Laplace</button>
     </div>
   </form>
 </div>
+
 <p>
-  {%if complejo%}
-  El resultado es: \({{complejo}}\)
+  {%if resultado%}
+    La antitransformada de Laplace es: ${{resultado}}$
+    ${e}^t$
   {%endif%}
 </p>
 <!-- Footer-->

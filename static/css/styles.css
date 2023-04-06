@@ -53,3 +53,7 @@
     overflow:scroll;
 }
 
+#mostrarResultado{
+    display: none;
+}
+

@@ -130,6 +130,18 @@ def transformada_laplace():
         return render_template('transformada_laplace.html')
 
 
+@app.route('/antitransf_laplace', methods=['GET', 'POST'])
+def antitransformada_laplace():
+    if request.method == 'POST':
+        antitransformada = str(request.form['antitransformada'])
+
+        resultado = inv_L(antitransformada, t)
+
+        return render_template('antitransformada_laplace.html', resultado=resultado)
+
+    else:
+        return render_template('antitransformada_laplace.html')
+
 @app.route('/ec_diferencial_laplace', methods=['GET', 'POST'])
 def ec_dif_laplace():
     if request.method == 'POST':

@@ -48,6 +48,9 @@
         </a>
         <ul class="dropdown-menu" id="seleccionLaplace">
             <li><a class="dropdown-item" href="/teoriaLaplace">Introducción Teórica</a></li>
+            <li><a class="dropdown-item" href="/transf_laplace">Transformada de Laplace</a></li>
+            <li><a class="dropdown-item" href="/antitransf_laplace">Antitransformada de Laplace</a></li>
+            <li><a class="dropdown-item" href="/ec_diferencial_laplace">Ecuación Diferencial por Laplace</a></li>
         </ul>
         </li>
       </ul>
@@ -100,7 +103,7 @@
     </div>
 
 
-    <div class="col-md-7">
+    <div id="mostrarResultado" class="col-md-7">
       <select name="tipoFuncionSuma" id="tipoFuncionSuma" class="form-select" aria-label="Default select example">
         <option selected>Selecciona en qué forma querés que se muestre el resultado</option>
         <option value="cos">Coseno</option>
@@ -115,7 +118,7 @@
 </div>
 <p>
   {%if resultado%}
-  El resultado es: {{resultado}}
+  El resultado es: ${{resultado}}$
   {%endif%}
 </p>
 <!-- Footer-->
