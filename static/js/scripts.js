@@ -10,21 +10,6 @@ function alertarDivisionPor0(operacion) {
     }
 }
 
-function noSonNulos(tipoFuncion1, tipoFuncion2) {
-    return tipoFuncion1 != null && tipoFuncion2 != null;
-}
-
-function mostrar() {
-    let tipoFuncion1 = document.getElementById('tipoFuncion1').value
-    console.log(tipoFuncion1)
-    let tipoFuncion2 = document.getElementById('tipoFuncion2').value
-    console.log(tipoFuncion2)
-
-    if (tipoFuncion1 !== tipoFuncion2 && noSonNulos(tipoFuncion1, tipoFuncion2)) {
-        document.getElementById('mostrarResultado').style.display = 'block'
-    }
-}
-
 operacion.addEventListener('click', e=> {
     e.preventDefault()
     console.log(operacion)
