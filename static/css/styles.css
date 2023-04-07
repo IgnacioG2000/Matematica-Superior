@@ -1,8 +1,10 @@
 
 .formulario1 {
     padding: 20px 30px;
-    margin: 30px;
+    margin: 40px;
     box-sizing: content-box;
+    display: flex;
+    flex-direction: column;
 }
 
 .color1 {
@@ -13,18 +15,13 @@
     color: #dddddd;
 }
 
-
-
-
 .bg-color1 {
     background-color: #457b9d;
 }
 
-
 .bg-color3 {
     background-color: #E68A50;
 }
-
 
 .hidden{
     display: none
