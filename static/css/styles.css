@@ -53,7 +53,35 @@
     overflow:scroll;
 }
 
-#mostrarResultado{
+#mostrarResultadoFasores {
+    display: none;
+}
+
+#mostrarResultadoEcDiferencialOrden1 {
+    display: none;
+}
+
+#mostrarResultadoEcDiferencialOrden2 {
+    display: none;
+}
+
+#mostrarResultadoEcDiferencialOrden3 {
+    display: none;
+}
+
+#mostrarValoresInicialesEcDiferencialOrden3 {
+    display: none;
+}
+
+#mostrarValoresInicialesEcDiferencialOrden2 {
+    display: none;
+}
+
+#mostrarValoresInicialesEcDiferencialOrden1 {
+    display: none;
+}
+
+#mostrarFuncionYTerminoIndependiente {
     display: none;
 }
 
