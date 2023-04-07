@@ -18,9 +18,9 @@ tipoFuncion2.addEventListener('change', e => {
 function mostrarTipoFuncionSegunRespuesta(tipoFuncion1, tipoFuncion2) {
 
     if (tipoFuncion1 !== tipoFuncion2 && noEstanDefinidos(tipoFuncion1, tipoFuncion2)) {
-        document.getElementById('mostrarResultado').style.display = 'block'
+        document.getElementById('mostrarResultadoFasores').style.display = 'block'
     }
     else {
-        document.getElementById('mostrarResultado').style.display = 'none'
+        document.getElementById('mostrarResultadoFasores').style.display = 'none'
     }
 }

@@ -1,7 +1,12 @@
+.formularioLaplace {
+    margin-left: 15px;
+    box-sizing: content-box;
+    display: flex;
+    flex-direction: column;
+}
 
-.formulario1 {
-    padding: 20px 30px;
-    margin: 40px;
+.formularioComplejos {
+    margin-left: 15px;
     box-sizing: content-box;
     display: flex;
     flex-direction: column;
@@ -47,6 +52,7 @@
 }
 
 .teoriaLaplace {
+    margin: 10px;
     overflow:scroll;
 }
 
