@@ -55,7 +55,6 @@
         </ul>
         </li>
       </ul>
-
     </div>
   </div>
 </nav>
@@ -63,11 +62,11 @@
 <div class="formularioComplejos">
   <h4> Operaciones con números complejos</h4>
   <form class="row g-3" action="/complejos_operaciones" method="POST">
-    <div class="col-md-7">
+    <div class="col-md-4">
       <label for="complejoOperaciones1" class="form-label">Primer Complejo</label>
       <input type="text" class="form-control" name="complejoOperaciones1" id="complejoOperaciones1">
     </div>
-        <div class="col-md-7">
+    <div class="col-md-4">
       <label for="complejoOperaciones2" class="form-label">Segundo Complejo</label>
       <input type="text" class="form-control" name="complejoOperaciones2" id="complejoOperaciones2">
     </div>
@@ -85,12 +84,14 @@
       <button type="submit" class="btn btn-primary" >Realizar operación</button>
     </div>
   </form>
-</div>
-<p>
+
+  <p>
   {%if complejo%}
-  El resultado es: \({{complejo}}\)
+  El resultado es: ${{complejo}}$
   {%endif%}
-</p>
+  </p>
+</div>
+
 <!-- Footer-->
 <footer class="py-5 bg-color1 fixed-bottom">
   <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Ignacio García 2023</p></div>

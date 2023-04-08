@@ -58,20 +58,18 @@
 </nav>
 <!-- Section-->
 <div class="formularioComplejos">
-    <br>
   <h4> Numeros Complejos</h4>
   <form class="row g-3" action="/complejos" method="POST">
-    <div class="col-md-7">
+    <div class="col-md-3">
       <label for="parteReal" class="form-label">Parte Real</label>
       <input type="number" class="form-control" name="parteReal" id="parteReal">
     </div>
-    <div class="col-md-7">
+    <div class="col-md-3">
       <label for="parteImaginaria" class="form-label">Parte Imaginaria</label>
       <input type="number" class="form-control" name="parteImaginaria" id="parteImaginaria">
     </div>
       <!-- Example single danger button -->
     <div class="col-md-7">
-
       <select name="visualizacion" class="form-select" aria-label="Default select example">
         <option selected>Selecciona la forma en que querés ver el número complejo</option>
         <option value="binomica">Binomica</option>
@@ -85,13 +83,15 @@
       <button type="submit" class="btn btn-primary" >Mostrar número complejo</button>
     </div>
   </form>
-</div>
 
-<p>
+  <p>
   {%if complejo%}
-  El numero complejo en forma {{operacion}} es: \({{complejo}}\)
+  El numero complejo en forma {{operacion}} es: ${{complejo}}$
   {%endif%}
 </p>
+</div>
+
+
 <!-- Footer-->
 <footer class="py-5 bg-color1 fixed-bottom">
   <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Ignacio García 2023</p></div>

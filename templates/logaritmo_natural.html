@@ -55,7 +55,6 @@
         </ul>
         </li>
       </ul>
-
     </div>
   </div>
 </nav>
@@ -63,7 +62,7 @@
 <div class="formularioComplejos">
   <h4> Logaritmo natural de un número complejo</h4>
   <form class="row g-3" action="/complejos_logaritmo" method="POST">
-    <div class="col-md-7">
+    <div class="col-md-4">
       <label for="logNatural" class="form-label">Número complejo</label>
       <input type="text" class="form-control" name="logNatural" id="logNatural">
     </div>
@@ -71,12 +70,13 @@
       <button type="submit" class="btn btn-primary" >Calcular logaritmo natural</button>
     </div>
   </form>
-</div>
-<p>
+  <p>
   {%if resultado%}
-  El resultado es: {{resultado}}
+  El resultado es: ${{resultado}}$
   {%endif%}
-</p>
+  </p>
+</div>
+
 <!-- Footer-->
 <footer class="py-5 bg-color1 fixed-bottom">
   <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Ignacio García 2023</p></div>

@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<script type="text/x-mathjax-config">
+  <script type="text/x-mathjax-config">
   MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
 </script>
-<script type="text/javascript"
-  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
+  <script type="text/javascript"
+          src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
   <title>Ec Diferencial</title>
   <!-- Favicon-->
   <link rel="icon" type="image/x-icon" href="../static/imagenes/logo.png" />
@@ -22,50 +22,50 @@
 <body>
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg bg-color3" >
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" id="home" aria-current="page" href="/">Home</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Números Complejos
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/complejos">Mostrar complejo con su gráfica</a></li>
-            <li><a class="dropdown-item" href="/complejos_operaciones">Operaciones con 2 complejos</a></li>
-            <li><a class="dropdown-item" href="/complejos_exponente">Elevar complejo a exp natural</a></li>
-            <li><a class="dropdown-item" href="/complejos_raiz">Calcular raiz cuadrada de un numero complejo</a></li>
-            <li><a class="dropdown-item" href="/complejos_logaritmo">Calcular logaritmo natural de un numero complejo</a></li>
-            <li><a class="dropdown-item" href="/cuadratica_complejos">Resolver ecuación cuadrática</a></li>
-            <li><a class="dropdown-item" href="/fasores">Sumar 2 funciones sinusoidales por fasores</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Transformada de Laplace
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <a class="nav-link active" id="home" aria-current="page" href="/">Home</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Números Complejos
         </a>
-       <ul class="dropdown-menu" id="seleccionLaplace">
-            <li><a class="dropdown-item" href="/teoriaLaplace">Introducción Teórica</a></li>
-            <li><a class="dropdown-item" href="/transf_laplace">Transformada de Laplace</a></li>
-            <li><a class="dropdown-item" href="/antitransf_laplace">Antitransformada de Laplace</a></li>
-            <li><a class="dropdown-item" href="/ec_diferencial_laplace">Ecuación Diferencial por Laplace</a></li>
-            <li><a class="dropdown-item" href="/eval_integrales_laplace">Evaluación de Integrales</a></li>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="/complejos">Mostrar complejo con su gráfica</a></li>
+          <li><a class="dropdown-item" href="/complejos_operaciones">Operaciones con 2 complejos</a></li>
+          <li><a class="dropdown-item" href="/complejos_exponente">Elevar complejo a exp natural</a></li>
+          <li><a class="dropdown-item" href="/complejos_raiz">Calcular raiz cuadrada de un numero complejo</a></li>
+          <li><a class="dropdown-item" href="/complejos_logaritmo">Calcular logaritmo natural de un numero complejo</a></li>
+          <li><a class="dropdown-item" href="/cuadratica_complejos">Resolver ecuación cuadrática</a></li>
+          <li><a class="dropdown-item" href="/fasores">Sumar 2 funciones sinusoidales por fasores</a></li>
         </ul>
-        </li>
-      </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Transformada de Laplace
+        </a>
+        <ul class="dropdown-menu" id="seleccionLaplace">
+          <li><a class="dropdown-item" href="/teoriaLaplace">Introducción Teórica</a></li>
+          <li><a class="dropdown-item" href="/transf_laplace">Transformada de Laplace</a></li>
+          <li><a class="dropdown-item" href="/antitransf_laplace">Antitransformada de Laplace</a></li>
+          <li><a class="dropdown-item" href="/ec_diferencial_laplace">Ecuación Diferencial por Laplace</a></li>
+          <li><a class="dropdown-item" href="/eval_integrales_laplace">Evaluación de Integrales</a></li>
+        </ul>
+      </li>
+    </ul>
 
-    </div>
+  </div>
   </div>
 </nav>
 <!-- Section-->
 <div class="formularioLaplace">
-    <br>
+  <br>
   <h3> Resolución de Ecuación Diferencial por Transformada de Laplace</h3>
   <form class="row g-3" action="/ec_diferencial_laplace" method="POST">
 
     <div class="col-md-7">
-    <select name="tipoVariable" id="tipoVariable" class="form-select" aria-label="Default select example">
+      <select name="tipoVariable" id="tipoVariable" class="form-select" aria-label="Default select example">
         <option selected="">Selecciona la variable que quieras utilizar</option>
         <option value="x">x</option>
         <option value="y">y</option>
@@ -74,7 +74,7 @@
     </div>
 
     <div class="col-md-7">
-    <select name="ordenEcuacion" id="ordenEcuacion" class="form-select" aria-label="Default select example">
+      <select name="ordenEcuacion" id="ordenEcuacion" class="form-select" aria-label="Default select example">
         <option selected>Cuál es el orden de la ecuación diferencial?</option>
         <option value="1">1</option>
         <option value="2">2</option>
@@ -83,58 +83,58 @@
     </div>
 
     <h4>Coeficientes de la ecuación</h4>
-      <div id="mostrarResultadoEcDiferencialOrden3">
-        <div class="col-md-3">
+    <div id="mostrarResultadoEcDiferencialOrden3">
+      <div class="col-md-3">
         <label for="coefDerivadaTercera" class="form-label">Coeficiente tercer derivada</label>
         <input type="number" class="form-control" name="coefDerivadaTercera" id="coefDerivadaTercera">
-        </div>
       </div>
+    </div>
 
-      <div id="mostrarResultadoEcDiferencialOrden2">
-        <div class="col-md-3">
+    <div id="mostrarResultadoEcDiferencialOrden2">
+      <div class="col-md-3">
         <label for="coefDerivadaSegunda" class="form-label">Coeficiente segunda derivada</label>
         <input type="number" class="form-control" name="coefDerivadaSegunda" id="coefDerivadaSegunda">
-        </div>
       </div>
+    </div>
 
-      <div id="mostrarResultadoEcDiferencialOrden1">
-        <div class="col-md-3">
+    <div id="mostrarResultadoEcDiferencialOrden1">
+      <div class="col-md-3">
         <label for="coefDerivadaPrimera" class="form-label">Coeficiente primer derivada</label>
         <input type="number" class="form-control" name="coefDerivadaPrimera" id="coefDerivadaPrimera">
-        </div>
+      </div>
+    </div>
+
+    <div id="mostrarFuncionYTerminoIndependiente">
+      <div class="col-md-3">
+        <label for="coefFuncion" class="form-label">Coeficiente función</label>
+        <input type="text" class="form-control" name="coefFuncion" id="coefFuncion">
       </div>
 
-      <div id="mostrarFuncionYTerminoIndependiente">
-        <div class="col-md-3">
-          <label for="coefFuncion" class="form-label">Coeficiente función</label>
-          <input type="number" class="form-control" name="coefFuncion" id="coefFuncion">
-        </div>
-
-        <div class="col-md-3">
-          <label for="terminoIndependiente" class="form-label">Término independiente</label>
-          <input type="text" class="form-control" name="terminoIndependiente" id="terminoIndependiente">
-        </div>
+      <div class="col-md-3">
+        <label for="terminoIndependiente" class="form-label">Término independiente</label>
+        <input type="text" class="form-control" name="terminoIndependiente" id="terminoIndependiente">
       </div>
+    </div>
 
     <h4>Valores iniciales</h4>
 
     <div class="contenedor">
       <div id="mostrarValoresInicialesEcDiferencialOrden3">
-        <div class="col-auto">
-        <label for="fpp0" class="form-label">$x''(0)$</label>
-        <input type="number" class="form-control" name="fpp0" id="fpp0">
+        <div class="col-3">
+          <label for="fpp0" class="form-label">$x''(0)$</label>
+          <input type="number" class="form-control" name="fpp0" id="fpp0">
         </div>
       </div>
 
       <div id="mostrarValoresInicialesEcDiferencialOrden2">
-        <div class="col-auto">
+        <div class="col-3">
           <label for="fp0" class="form-label">$x'(0)$</label>
           <input type="number" class="form-control" name="fp0" id="fp0">
         </div>
       </div>
 
       <div id="mostrarValoresInicialesEcDiferencialOrden1">
-        <div class="col-auto">
+        <div class="col-3">
           <label for="f0" class="form-label">$x(0)$</label>
           <input type="number" class="form-control" name="f0" id="f0">
         </div>
@@ -146,15 +146,17 @@
     </div>
 
   </form>
+
+  <p>
+    {%if variable%}
+    {%if solucion%}
+    La solución de la ecuación diferencial es: ${{variable}}(t)$ $=$ ${{solucion}}$
+    {%endif%}
+    {%endif%}
+  </p>
 </div>
 
-<p>
-  {%if variable%}
-  {%if solucion%}
-    La solución de la ecuación diferencial es: ${{variable}}(t)$ $=$ ${{solucion}}$
-  {%endif%}
-  {%endif%}
-</p>
+
 <!-- Footer-->
 <footer class="py-5 bg-color1 fixed-bottom">
   <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Ignacio García 2023</p></div>

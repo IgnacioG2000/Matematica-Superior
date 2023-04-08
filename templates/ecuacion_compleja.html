@@ -63,17 +63,17 @@
 <div class="formularioComplejos">
     <br>
   <h4>Ecuación cuadrática con coeficientes complejos</h4>
-  <h6>Coeficiente principal</h6>
   <form class="row g-3" action="/cuadratica_complejos" method="POST">
-    <div class="col-md-7">
+    <div class="col-md-3">
+      <label for="complejo1" class="form-label">Coeficiente principal</label>
       <input type="text" class="form-control" name="complejo1" id="complejo1">
     </div>
-    <h6>Término lineal</h6>
-    <div class="col-md-7">
+    <div class="col-md-3">
+      <label for="complejo2" class="form-label">Término lineal</label>
       <input type="text" class="form-control" name="complejo2" id="complejo2">
     </div>
-    <h6>Término independiente</h6>
-    <div class="col-md-7">
+    <div class="col-md-3">
+      <label for="complejo3" class="form-label">Término independiente</label>
       <input type="text" class="form-control" name="complejo3" id="complejo3">
     </div>
 
@@ -81,14 +81,16 @@
       <button type="submit" class="btn btn-primary" >Resolver Ecuación</button>
     </div>
   </form>
-</div>
-<p>
+
+  <p>
   {% if resultado1 %}
   {%if resultado2 %}
-  Los resultados son: {{resultado1}} y {{resultado2}}
+  Los resultados son: ${{resultado1}} y {{resultado2}}$
   {%endif%}
   {%endif%}
-</p>
+  </p>
+</div>
+
 <!-- Footer-->
 <footer class="py-5 bg-color1 fixed-bottom">
   <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Ignacio García 2023</p></div>

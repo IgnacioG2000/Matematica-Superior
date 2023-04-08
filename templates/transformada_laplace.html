@@ -72,13 +72,15 @@
       <button type="submit" class="btn btn-primary" >Mostrar transformada de Laplace</button>
     </div>
   </form>
-</div>
-
-<p>
+  <p>
   {%if resultado%}
+    {%if funcion%}
     La transformada de Laplace es: ${{resultado}}$
   {%endif%}
-</p>
+  </p>
+</div>
+
+
 <!-- Footer-->
 <footer class="py-5 bg-color1 fixed-bottom">
   <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Ignacio García 2023</p></div>

@@ -16,6 +16,8 @@ def Index():
     return render_template('index.html')
 
 
+################### COMPLEJOS #################################
+
 @app.route('/complejos', methods=['POST', 'GET'])
 def complejos_con_grafico():
     if request.method == 'POST':
@@ -103,7 +105,6 @@ def fasores():
 
         frecuencia = request.form['frecuencia']
 
-        # TODO: hacer el hidden como en dds -> si el tipo de senial 1 y 2 son diferentes, que se muestre este select
         opcion_muestra = request.form['tipoFuncionSuma']
 
         resultado = suma_funciones_por_fasores(modulo1, fase1, tipo_senial1, modulo2, fase2, tipo_senial2, frecuencia,
@@ -113,6 +114,8 @@ def fasores():
     else:
         return render_template('suma_fasores.html')
 
+
+################### LAPLACE #################################
 
 @app.route('/teoriaLaplace', methods=['GET'])
 def teoria_laplace():
@@ -126,7 +129,7 @@ def transformada_laplace():
 
         resultado = L(transformada)
 
-        return render_template('transformada_laplace.html', resultado=resultado)
+        return render_template('transformada_laplace.html', funcion=transformada, resultado=resultado)
 
     else:
         return render_template('transformada_laplace.html')
@@ -149,26 +152,26 @@ def antitransformada_laplace():
 @app.route('/ec_diferencial_laplace', methods=['GET', 'POST'])
 def ec_dif_laplace():
     if request.method == 'POST':
-        variable = str(request.form['tipoVariable'])
-        coef_deriv_segunda = int(request.form['coefDerivadaSegunda'])
-        coef_deriv_primera = int(request.form['coefDerivadaPrimera'])
-        coef_funcion = int(request.form['coefFuncion'])
-        term_indep = str(request.form['terminoIndependiente'])
-        print(term_indep)
-        f0 = int(request.form['f0'])
-        print(type(f0))
-        fp0 = int(request.form['fp0'])
+        variable = request.form['tipoVariable']
+        coef_deriv_tercera = request.form['coefDerivadaTercera']
+        coef_deriv_segunda = request.form['coefDerivadaSegunda']
+        coef_deriv_primera = request.form['coefDerivadaPrimera']
+        coef_funcion = request.form['coefFuncion']
+        term_indep = request.form['terminoIndependiente']
 
-        ec = armar_ecuacion(coef_deriv_segunda * L_diff(variable, f0, fp0, 0, 2) +
+        f0 = request.form['f0']
+        fp0 = request.form['fp0']
+        fpp0 = request.form['fpp0']
+
+        ec = armar_ecuacion(coef_deriv_tercera * L_diff(variable, f0, fp0, fpp0, 3)
+                            + coef_deriv_segunda * L_diff(variable, f0, fp0, 0, 2) +
                             coef_deriv_primera * L_diff(variable, f0, 0) +
                             coef_funcion * L_diff(variable, 0, 0, 0, 0),
                             L(term_indep))
 
-        print(ec)
         variable = Function(variable.upper())(s)
         solucion_en_laplace = resolver_ecuacion(ec, variable)
         solucion_en_laplace[variable].apart()
-        print(solucion_en_laplace)
 
         solucion = inv_L(solucion_en_laplace[variable], t)
 
