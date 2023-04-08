@@ -3,11 +3,13 @@ from flask import Flask, render_template, request
 from Complejos.calculos.operaciones import potencia, raiz_cuadrada, bhaskara, logaritmo_natural_complejo, \
     suma_funciones_por_fasores
 from funciones_auxiliares import mostrar_complejo_segun_opcion, realizar_operacion_segun_operador
-from laplace.operaciones import L, armar_ecuacion, L_diff, resolver_ecuacion, inv_L
-from sympy.abc import t,s
+from laplace.operaciones import L, armar_ecuacion, L_diff, resolver_ecuacion, inv_L, evaluar_integral
+import sympy as smp
+from sympy.abc import t, s
 from sympy import Function
 
 app = Flask(__name__)
+
 
 @app.route('/')
 def Index():
@@ -133,14 +135,16 @@ def transformada_laplace():
 @app.route('/antitransf_laplace', methods=['GET', 'POST'])
 def antitransformada_laplace():
     if request.method == 'POST':
-        antitransformada = str(request.form['antitransformada'])
+        antitransformada = request.form['antitransformada']
 
+        t = smp.Symbol('t', positive=True)
         resultado = inv_L(antitransformada, t)
 
         return render_template('antitransformada_laplace.html', resultado=resultado)
 
     else:
         return render_template('antitransformada_laplace.html')
+
 
 @app.route('/ec_diferencial_laplace', methods=['GET', 'POST'])
 def ec_dif_laplace():
@@ -154,7 +158,6 @@ def ec_dif_laplace():
         f0 = int(request.form['f0'])
         print(type(f0))
         fp0 = int(request.form['fp0'])
-
 
         ec = armar_ecuacion(coef_deriv_segunda * L_diff(variable, f0, fp0, 0, 2) +
                             coef_deriv_primera * L_diff(variable, f0, 0) +
@@ -173,6 +176,20 @@ def ec_dif_laplace():
 
     else:
         return render_template('ec_diferenciales_laplace.html')
+
+
+@app.route('/eval_integrales_laplace', methods=['GET', 'POST'])
+def evaluacion_integrales_laplace():
+    if request.method == 'POST':
+        funcion = str(request.form['integral'])
+        valor = request.form['valor']
+
+        resultado = evaluar_integral(funcion, valor)
+
+        return render_template('eval_integrales_laplace.html', funcion=funcion, valor=valor, resultado=resultado)
+
+    else:
+        return render_template('eval_integrales_laplace.html')
 
 
 if __name__ == '__main__':

@@ -9,7 +9,7 @@
 <script type="text/javascript"
   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
-  <title>Laplace</title>
+  <title>Evaluación de Integrales</title>
   <!-- Favicon-->
   <link rel="icon" type="image/x-icon" href="../static/imagenes/logo.png" />
   <!-- Bootstrap icons-->
@@ -56,30 +56,46 @@
       </ul>
 
     </div>
-  </div>
 </nav>
 <!-- Section-->
 <div class="formularioLaplace">
     <br>
-  <h4> Antitransformada de Laplace</h4>
-  <form class="row g-3" action="/antitransf_laplace" method="POST">
+  <h4> Evaluación de Integrales por Transformada de Laplace</h4>
+  <form class="row g-3" action="/eval_integrales_laplace" method="POST">
     <div class="col-md-7">
-      <label for="antitransformada" class="form-label">Función a antitransformar</label>
-      <input type="text" class="form-control" name="antitransformada" id="antitransformada">
+      <label for="integral" class="form-label">Función a evaluar la integral</label>
+      <input type="text" class="form-control" name="integral" id="integral">
     </div>
       <!-- Example single danger button -->
 
-    <div class="col-12">
-      <button type="submit" class="btn btn-primary" >Mostrar antitransformada de Laplace</button>
+    <div class="col-md-4">
+      <label for="valor" class="form-label">Valor a evaluar la integral</label>
+      <input type="text" class="form-control" name="valor" id="valor">
     </div>
+
+    <div class="col-12">
+      <button type="submit" id="botonMostrarIntegral" class="btn btn-primary" >Mostrar integral a calcular</button>
+    </div>
+
+      <p>
+      {%if funcion%}
+      La integral a evaluar es: $ {\displaystyle \int_0^{\infty} {{funcion}}{\bullet} {e}^{-{{valor}}t}dt} $
+      {%endif%}
+      </p>
+
+    <div class="col-12">
+      <button type="submit" id="botonEvaluarIntegral" class="btn btn-primary" >Evaluar integral</button>
+    </div>
+
+      <p>
+    {%if resultado%}
+      El resultado es: ${{resultado}}$
+    {%endif%}
+      </p>
   </form>
 </div>
 
-<p>
-  {%if resultado%}
-    La antitransformada de Laplace es: ${{resultado}}$
-  {%endif%}
-</p>
+
 <!-- Footer-->
 <footer class="py-5 bg-color1 fixed-bottom">
   <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Ignacio García 2023</p></div>

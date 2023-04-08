@@ -4,7 +4,7 @@ from sympy.integrals import laplace_transform
 from sympy.integrals import inverse_laplace_transform
 from sympy import Heaviside
 from sympy import Eq, sympify, limit
-from sympy import symbols, Function, solve, integrate, Integral, Matrix, solve_linear_system
+from sympy import symbols, Function, solve
 
 
 def L(f):
@@ -51,6 +51,12 @@ def resolver_sistema_ecuaciones(ecuaciones, incognita):
 
 def transformada_division_por_t(funcion):
     return smp.integrate(funcion, (U, s, limit(funcion, s, smp.oo)))
+
+
+def evaluar_integral(funcion, valor):
+    transformada = L(funcion)
+    resultado = smp.sympify(transformada).subs(s, valor)
+    return resultado
 
 
 x = Function('x')(t)  # Definimos a x, y, z como funciones del tiempo

@@ -18,44 +18,26 @@ operacion.addEventListener('click', e=> {
 })
 
 */
-const orden = document.getElementById('ordenEcuacion')
 
-function mostrarOrdenEcuacionSegunOpcion(ordenEc) {
-    if(ordenEc === '3') {
-        document.getElementById('mostrarResultadoEcDiferencialOrden3').style.display = 'block'
-        document.getElementById('mostrarValoresInicialesEcDiferencialOrden3').style.display = 'block'
-        document.getElementById('mostrarResultadoEcDiferencialOrden2').style.display = 'block'
-        document.getElementById('mostrarValoresInicialesEcDiferencialOrden2').style.display = 'block'
-        document.getElementById('mostrarResultadoEcDiferencialOrden1').style.display = 'block'
-        document.getElementById('mostrarValoresInicialesEcDiferencialOrden1').style.display = 'block'
-        document.getElementById('mostrarFuncionYTerminoIndependiente').style.display = 'block'
-    }
-    else {
-        if(ordenEc === '2') {
-            document.getElementById('mostrarResultadoEcDiferencialOrden3').style.display = 'none'
-            document.getElementById('mostrarValoresInicialesEcDiferencialOrden3').style.display = 'none'
-            document.getElementById('mostrarResultadoEcDiferencialOrden2').style.display = 'block'
-            document.getElementById('mostrarValoresInicialesEcDiferencialOrden2').style.display = 'block'
-            document.getElementById('mostrarResultadoEcDiferencialOrden1').style.display = 'block'
-            document.getElementById('mostrarValoresInicialesEcDiferencialOrden1').style.display = 'block'
-            document.getElementById('mostrarFuncionYTerminoIndependiente').style.display = 'block'
-        }
-        else {
-            if(ordenEc === '1') {
-                document.getElementById('mostrarResultadoEcDiferencialOrden1').style.display = 'block'
-                document.getElementById('mostrarValoresInicialesEcDiferencialOrden1').style.display = 'block'
-                document.getElementById('mostrarFuncionYTerminoIndependiente').style.display = 'block'
-                document.getElementById('mostrarResultadoEcDiferencialOrden2').style.display = 'none'
-                document.getElementById('mostrarValoresInicialesEcDiferencialOrden2').style.display = 'none'
-                document.getElementById('mostrarResultadoEcDiferencialOrden3').style.display = 'none'
-                document.getElementById('mostrarValoresInicialesEcDiferencialOrden3').style.display = 'none'
-            }
-        }
-    }
+const botonMostrarIntegral = document.getElementById('botonMostrarIntegral')
+const botonMostrarResultadoIntegral = document.getElementById('botonEvaluarIntegral')
+const integralDiv = document.getElementById('mostrarIntegral')
+const resultadoDiv = document.getElementById('mostrarResultado')
 
+function mostrarIntegral(integral) {
+    integral.style.display = 'block'
 }
 
-orden.addEventListener('change', e => {
-    e.preventDefault();
-    mostrarOrdenEcuacionSegunOpcion(orden.value)
+botonMostrarIntegral.addEventListener('select', e => {
+    e.preventDefault()
+    mostrarIntegral(integralDiv)
+})
+
+function mostrarResultadoIntegral(resultado) {
+    resultado.style.display = 'block'
+}
+
+botonMostrarResultadoIntegral.addEventListener('select', e => {
+    e.preventDefault()
+    mostrarResultadoIntegral(resultadoDiv)
 })
