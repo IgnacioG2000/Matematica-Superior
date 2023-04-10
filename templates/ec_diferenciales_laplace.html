@@ -86,21 +86,21 @@
     <div id="mostrarResultadoEcDiferencialOrden3">
       <div class="col-md-3">
         <label for="coefDerivadaTercera" class="form-label">Coeficiente tercer derivada</label>
-        <input type="number" class="form-control" name="coefDerivadaTercera" id="coefDerivadaTercera">
+        <input type="text" class="form-control" name="coefDerivadaTercera" id="coefDerivadaTercera" placeholder="0">
       </div>
     </div>
 
     <div id="mostrarResultadoEcDiferencialOrden2">
       <div class="col-md-3">
         <label for="coefDerivadaSegunda" class="form-label">Coeficiente segunda derivada</label>
-        <input type="number" class="form-control" name="coefDerivadaSegunda" id="coefDerivadaSegunda">
+        <input type="text" class="form-control" name="coefDerivadaSegunda" id="coefDerivadaSegunda">
       </div>
     </div>
 
     <div id="mostrarResultadoEcDiferencialOrden1">
       <div class="col-md-3">
         <label for="coefDerivadaPrimera" class="form-label">Coeficiente primer derivada</label>
-        <input type="number" class="form-control" name="coefDerivadaPrimera" id="coefDerivadaPrimera">
+        <input type="text" class="form-control" name="coefDerivadaPrimera" id="coefDerivadaPrimera">
       </div>
     </div>
 
@@ -122,7 +122,7 @@
       <div id="mostrarValoresInicialesEcDiferencialOrden3">
         <div class="col-3">
           <label for="fpp0" class="form-label">$x''(0)$</label>
-          <input type="number" class="form-control" name="fpp0" id="fpp0">
+          <input type="number" class="form-control" name="fpp0" id="fpp0" placeholder="0">
         </div>
       </div>
 
@@ -150,7 +150,11 @@
   <p>
     {%if variable%}
     {%if solucion%}
-    La solución de la ecuación diferencial es: ${{variable}}(t)$ $=$ ${{solucion}}$
+    {%if solucion_en_laplace%}
+    La solucion en el dominio de Laplace es ${{solucion_en_laplace}}$
+
+    La solución de la ecuación diferencial es: ${{variable}}$ $=$ ${{solucion}}$
+    {%endif%}
     {%endif%}
     {%endif%}
   </p>

@@ -152,30 +152,34 @@ def antitransformada_laplace():
 @app.route('/ec_diferencial_laplace', methods=['GET', 'POST'])
 def ec_dif_laplace():
     if request.method == 'POST':
-        variable = request.form['tipoVariable']
-        coef_deriv_tercera = request.form['coefDerivadaTercera']
-        coef_deriv_segunda = request.form['coefDerivadaSegunda']
-        coef_deriv_primera = request.form['coefDerivadaPrimera']
-        coef_funcion = request.form['coefFuncion']
+        variable = str(request.form['tipoVariable'])
+        #coef_deriv_tercera = 0
+        coef_deriv_segunda = int(request.form['coefDerivadaSegunda'])
+        coef_deriv_primera = int(request.form['coefDerivadaPrimera'])
+        coef_funcion = int(request.form['coefFuncion'])
         term_indep = request.form['terminoIndependiente']
 
-        f0 = request.form['f0']
-        fp0 = request.form['fp0']
-        fpp0 = request.form['fpp0']
+        f0 = int(request.form['f0'])
+        fp0 = int(request.form['fp0'])
+        #fpp0 = 0
 
-        ec = armar_ecuacion(coef_deriv_tercera * L_diff(variable, f0, fp0, fpp0, 3)
-                            + coef_deriv_segunda * L_diff(variable, f0, fp0, 0, 2) +
+        t = smp.Symbol('t', positive=True)
+
+        ec = armar_ecuacion(coef_deriv_segunda * L_diff(variable, f0, fp0, 0, 2) +
                             coef_deriv_primera * L_diff(variable, f0, 0) +
                             coef_funcion * L_diff(variable, 0, 0, 0, 0),
                             L(term_indep))
 
-        variable = Function(variable.upper())(s)
-        solucion_en_laplace = resolver_ecuacion(ec, variable)
-        solucion_en_laplace[variable].apart()
+        variable_funcion = Function(variable.upper())(s)
+        solucion_en_laplace = resolver_ecuacion(ec, variable_funcion)
+        solucion_en_laplace[variable_funcion].apart()
 
-        solucion = inv_L(solucion_en_laplace[variable], t)
+        solucion = inv_L(solucion_en_laplace[variable_funcion], t)
 
-        return render_template('ec_diferenciales_laplace.html', solucion=solucion, variable=variable)
+        variable = Function(variable.lower())(t)
+
+        return render_template('ec_diferenciales_laplace.html', solucion_en_laplace=solucion_en_laplace,
+                               solucion=solucion, variable=variable)
 
     else:
         return render_template('ec_diferenciales_laplace.html')
@@ -196,4 +200,5 @@ def evaluacion_integrales_laplace():
 
 
 if __name__ == '__main__':
+
     app.run(port=8080)
