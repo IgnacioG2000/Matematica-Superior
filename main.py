@@ -4,9 +4,15 @@ from Complejos.calculos.operaciones import potencia, raiz_cuadrada, bhaskara, lo
     suma_funciones_por_fasores
 from funciones_auxiliares import mostrar_complejo_segun_opcion, realizar_operacion_segun_operador
 from laplace.operaciones import L, armar_ecuacion, L_diff, resolver_ecuacion, inv_L, evaluar_integral
+from transferencia.polos_y_ceros import *
 import sympy as smp
 from sympy.abc import t, s
 from sympy import Function
+
+import matplotlib.pyplot as plt
+import io
+import base64
+
 
 app = Flask(__name__)
 
@@ -153,7 +159,7 @@ def antitransformada_laplace():
 def ec_dif_laplace():
     if request.method == 'POST':
         variable = str(request.form['tipoVariable'])
-        #coef_deriv_tercera = 0
+        # coef_deriv_tercera = 0
         coef_deriv_segunda = int(request.form['coefDerivadaSegunda'])
         coef_deriv_primera = int(request.form['coefDerivadaPrimera'])
         coef_funcion = int(request.form['coefFuncion'])
@@ -161,7 +167,7 @@ def ec_dif_laplace():
 
         f0 = int(request.form['f0'])
         fp0 = int(request.form['fp0'])
-        #fpp0 = 0
+        # fpp0 = 0
 
         t = smp.Symbol('t', positive=True)
 
@@ -199,6 +205,41 @@ def evaluacion_integrales_laplace():
         return render_template('eval_integrales_laplace.html')
 
 
-if __name__ == '__main__':
+@app.route('/funcTransferencia', methods=['GET', 'POST'])
+def funcion_transferencia():
+    if request.method == 'POST':
+        numerador = request.form['ceros']
+        denominador = request.form['polos']
 
+        ceros,polos = obtener_polos_y_ceros(numerador, denominador)
+
+        print(ceros)
+        print(polos)
+
+
+        # Generar el gráfico de polos y ceros
+        plt.figure()
+        plt.scatter(polos.real, polos.imag, marker='x', color='red', label='Polos')
+        plt.scatter(ceros.real, ceros.imag, marker='o', color='blue', label='Ceros')
+        plt.axhline(0, color='black', linewidth=0.5)
+        plt.axvline(0, color='black', linewidth=0.5)
+        plt.xlabel('Parte Real')
+        plt.ylabel('Parte Imaginaria')
+        plt.title('Diagrama de Polos y Ceros')
+        plt.legend()
+
+        # Convertir el gráfico en una imagen y codificarla en base64
+        buf = io.BytesIO()
+        plt.savefig(buf, format='png')
+        buf.seek(0)
+        diagrama = base64.b64encode(buf.getvalue()).decode('utf-8')
+        plt.close()
+
+        return render_template('funcion_transferencia.html', ceros=ceros, polos=polos, diagrama=diagrama)
+
+    else:
+        return render_template('funcion_transferencia.html')
+
+
+if __name__ == '__main__':
     app.run(port=8080)

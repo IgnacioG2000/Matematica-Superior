@@ -9,15 +9,16 @@
 <script type="text/javascript"
   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
-  <title>Home</title>
+  <title>Función Transferencia</title>
   <!-- Favicon-->
   <link rel="icon" type="image/x-icon" href="../static/imagenes/logo.png" />
   <!-- Bootstrap icons-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <!-- Core theme CSS (includes Bootstrap)-->
-  <link href="../static/css/styles.css" rel="stylesheet" />
+  <link href="../static/css/styles.css" type="text/css" rel="stylesheet" />
 </head>
+
 <body>
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg bg-color3" >
@@ -64,28 +65,41 @@
     </div>
 
 </nav>
-<header class="bg-color1 py-5">
-  <div class="container px-4 px-lg-5 my-5">
-    <div class="text-center text-white">
-      <h1 class="display-4 fw-bolder">Bienvenido/a a la página de Matemática Superior</h1>
-      <p class="lead fw-normal text-white-50 mb-0">En nuestro sitio oficial</p>
-      <img src="../static/imagenes/logo.png" class="rounded mx-auto d-block" alt="">
-    </div>
-  </div>
-</header>
 <!-- Section-->
-<section>
-  <p>
-    Aca va a ir una intro
-  </p>
-</section>
+<div class="formularioComplejos">
+  <h4> Ceros y Polos de la función de transferencia</h4>
+  <form class="row g-3" action="/funcTransferencia" method="POST">
+    <div class="col-md-7">
+      <label for="ceros" class="form-label">Escribir los coeficientes del numerador separados por comas</label>
+      <input type="text" class="form-control" name="ceros" id="ceros">
+    </div>
+    <div class="col-md-7">
+      <label for="polos" class="form-label">Escribir los coeficientes del denominador separados por comas</label>
+      <input type="text" class="form-control" name="polos" id="polos">
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary" >Mostrar polos y ceros</button>
+    </div>
+  </form>
+</div>
+<p>
+  Los ceros son: ${{ceros}}$
+  Los polos son: ${{polos}}$
+
+
+  {% if diagrama %}
+    <img src="data:image/png;base64,{{ diagrama }}" alt="Diagrama de Polos y Ceros">
+    {% endif %}
+</p>
 <!-- Footer-->
-<footer class="py-5 bg-color1">
+<footer class="py-5 bg-color1 fixed-bottom">
   <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Ignacio García 2023</p></div>
 </footer>
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Core theme JS-->
+
 <script src="../static/js/scripts.js"></script>
+
 </body>
 </html>
