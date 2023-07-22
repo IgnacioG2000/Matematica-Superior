@@ -1,4 +1,7 @@
 from scipy import signal
+import matplotlib.pyplot as plt
+import io
+import base64
 
 
 def obtener_polos_y_ceros(numerador, denominador):
@@ -14,3 +17,25 @@ def obtener_polos_y_ceros(numerador, denominador):
     ceros = transfer_function.zeros
 
     return ceros, polos
+
+
+def generar_constelacion_polos_y_ceros(ceros, polos):
+    # Generar el gráfico de polos y ceros
+    plt.figure()
+    plt.scatter(polos.real, polos.imag, marker='x', color='red', label='Polos')
+    plt.scatter(ceros.real, ceros.imag, marker='o', color='blue', label='Ceros')
+    plt.axhline(0, color='black', linewidth=0.5)
+    plt.axvline(0, color='black', linewidth=0.5)
+    plt.xlabel('Parte Real')
+    plt.ylabel('Parte Imaginaria')
+    plt.title('Diagrama de Polos y Ceros')
+    plt.legend()
+
+    # Convertir el gráfico en una imagen y codificarla en base64
+    buf = io.BytesIO()
+    plt.savefig(buf, format='png')
+    buf.seek(0)
+    diagrama = base64.b64encode(buf.getvalue()).decode('utf-8')
+    plt.close()
+
+    return diagrama

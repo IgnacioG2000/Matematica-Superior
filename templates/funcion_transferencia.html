@@ -69,11 +69,11 @@
 <div class="formularioComplejos">
   <h4> Ceros y Polos de la función de transferencia</h4>
   <form class="row g-3" action="/funcTransferencia" method="POST">
-    <div class="col-md-7">
+    <div class="col-md-3">
       <label for="ceros" class="form-label">Escribir los coeficientes del numerador separados por comas</label>
       <input type="text" class="form-control" name="ceros" id="ceros">
     </div>
-    <div class="col-md-7">
+    <div class="col-md-3">
       <label for="polos" class="form-label">Escribir los coeficientes del denominador separados por comas</label>
       <input type="text" class="form-control" name="polos" id="polos">
     </div>
@@ -83,9 +83,6 @@
   </form>
 </div>
 <p>
-  Los ceros son: ${{ceros}}$
-  Los polos son: ${{polos}}$
-
 
   {% if diagrama %}
     <img src="data:image/png;base64,{{ diagrama }}" alt="Diagrama de Polos y Ceros">
