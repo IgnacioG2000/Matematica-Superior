@@ -84,10 +84,24 @@
 </div>
 <p>
 
-  {% if diagrama %}
+  {% if cero_infinito %}
+    {{cero_infinito}}
+  {% endif %}
+</p>
+
+<p>
+  {% if estabilidad %}
+    {{estabilidad}}
+  {% endif %}
+</p>
+
+<p>
+    {% if diagrama %}
     <img src="data:image/png;base64,{{ diagrama }}" alt="Diagrama de Polos y Ceros">
     {% endif %}
 </p>
+
+
 <!-- Footer-->
 <footer class="py-5 bg-color1 fixed-bottom">
   <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Ignacio García 2023</p></div>

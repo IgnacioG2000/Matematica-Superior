@@ -213,8 +213,11 @@ def funcion_transferencia():
         print(polos)
 
         diagrama = generar_constelacion_polos_y_ceros(ceros, polos)
+        presenta_cero_en_el_infinito = verificar_infinito(numerador, denominador)
+        estabilidad = verificar_estabilidad(numerador, denominador)
 
-        return render_template('funcion_transferencia.html', ceros=ceros, polos=polos, diagrama=diagrama)
+        return render_template('funcion_transferencia.html', ceros=ceros, polos=polos, diagrama=diagrama,
+                               cero_infinito=presenta_cero_en_el_infinito, estabilidad=estabilidad)
 
     else:
         return render_template('funcion_transferencia.html')
